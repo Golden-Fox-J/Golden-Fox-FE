@@ -1,3 +1,31 @@
+## Developer Names:
+```
+1-Mo'ath Shakhatreh
+2-Mahdi Malkawi
+3-Al-Mothana Al-Masri
+4-Mutaz Abutaha
+5-Duaa Melhem
+6-Zekra Quraan
+```
+
+## Description
+```
+It's an online store that display many products than you can buy them by choosing any product you like and then you can reach an information about the seller so you can reach him and buy this product, also you can put product's that you want to sell on the website after you create an  account on it .
+It give you a stage that you can buy a product's in a good prices that some one didn't need it any more or he just want to sell it, therefore also you have a stage that allow you to sell a product and show it to many peoples instead of searching for someone that need it.
+```
+
+
+# Wire Frames 
+
+![Home](./images/Untitled%20(51).jpg)
+
+![about](./images/Untitled%20(52).jpg)
+
+![favLis](./images/Untitled%20(53).jpg)
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
