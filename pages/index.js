@@ -1,12 +1,23 @@
-export default function Home (){
-  return(
+import { useState } from "react"
+import Login_form from "./login";
+// import Form from "@/components/form";
+import { useAuth } from "@/context/auth";
+
+
+export default function Home() {
+  const { login,user } = useAuth()
+  
+
+
+
+
+  return (
     <>
-    
-    
-    Home page
-    
-    
-    
+      
+      <h1>Home Page</h1>
+      <p>{user}</p>
+      {console.log(33333,user)}
+      
     </>
   )
 }
