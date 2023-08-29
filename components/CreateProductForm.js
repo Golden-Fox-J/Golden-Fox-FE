@@ -1,17 +1,17 @@
-// components/CreateProductForm.js
+
 import { useState } from 'react';
 
 export default function CreateProductForm() {
   const [formData, setFormData] = useState({
     owner: '',
     title: '',
-    image: null, // Use a state variable to manage file input
+    image: null, 
     description: '',
   });
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
-    // If the input type is 'file', store the file object
+   
     const newValue = type === 'file' ? files[0] : value;
 
     setFormData({
@@ -23,7 +23,7 @@ export default function CreateProductForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Create a FormData object to send the file and other form data
+   
     const formDataToSend = new FormData();
     formDataToSend.append('owner', formData.owner);
     formDataToSend.append('title', formData.title);
@@ -37,10 +37,10 @@ export default function CreateProductForm() {
       });
 
       if (response.ok) {
-        // Handle successful creation, e.g., show a success message
+      
         console.log('Product created successfully!');
       } else {
-        // Handle errors, e.g., show an error message
+        
         console.error('Failed to create product.');
       }
     } catch (error) {
@@ -61,6 +61,8 @@ export default function CreateProductForm() {
             id="owner"
             name="owner"
             value={formData.owner}
+            placeholder="user name"
+            required
             onChange={handleChange}
             className="w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
           />
@@ -72,6 +74,8 @@ export default function CreateProductForm() {
             type="text"
             id="title"
             name="title"
+            placeholder="password"
+            required
             value={formData.title}
             onChange={handleChange}
             className="w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
@@ -85,6 +89,7 @@ export default function CreateProductForm() {
             name="description"
             value={formData.description}
             onChange={handleChange}
+           
             className="w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
           />
         </div>
@@ -98,6 +103,7 @@ export default function CreateProductForm() {
               name="image"
               accept="image/*"
               onChange={handleChange}
+             
             />
           </div>
         </div>
