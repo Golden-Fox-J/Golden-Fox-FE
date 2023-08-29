@@ -1,0 +1,42 @@
+nav {
+  background-color: #02000E;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav .logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav .logo img {
+  width: 90px;
+  height: 80px;
+  margin-right: 1rem;
+}
+.nav .logo span {
+  color: #E5C27C;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.nav ul {
+  padding: 1rem 2rem;
+  list-style: none;
+  display: flex;
+}
+
+.nav li {
+  margin-right: 1.5rem;
+}
+
+.nav a {
+  color: #E5C27C;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #f39c12;
+}

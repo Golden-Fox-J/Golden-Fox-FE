@@ -1,6 +1,6 @@
 import { useState } from "react"
-import Form from "@/components/form"
-import { useAuth } from "@/context/auth"
+import Form from "components/form"
+import { useAuth } from "context/auth"
 
 
 export default function Login_form() {

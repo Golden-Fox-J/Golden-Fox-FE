@@ -1,4 +1,4 @@
-import { useAuth } from "@/context/auth"
+import { useAuth } from "context/auth"
 import { useAmp } from "next/amp"
 
 export default function Form({ loginHandler }) {
