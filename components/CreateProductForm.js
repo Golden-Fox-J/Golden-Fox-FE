@@ -74,7 +74,7 @@ export default function CreateProductForm() {
             type="text"
             id="title"
             name="title"
-            placeholder="password"
+            placeholder="Name of the product "
             required
             value={formData.title}
             onChange={handleChange}
