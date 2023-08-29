@@ -1,28 +1,37 @@
-import image1 from '../../public/images/w1.jpg';
-import image2 from '../../public/images/w2.jpg';
-import image3 from '../../public/images/w3.jpg';
+// components/ItemList.js
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Image from 'next/image';
 
-const featuredProducts = [
-    { id: 1, name: 'Product 1', price: 19.99, image: image1 },
-    { id: 2, name: 'Product 2', price: 29.99, image: image2 },
-    { id: 3, name: 'Product 3', price: 14.99, image: image3 },
-  ];  
+const ItemList = () => {
+    const [items, setItems] = useState([]);
 
-function FeaturedProducts() {
-  return (
-    <section className="featured-products">
-      <h2>Featured Products</h2>
-      <div className="product-list">
-        {featuredProducts.map(product => (
-          <div key={product.id} className="product">
-            <img src={product.image.src} alt={product.name} />
-            <h3>{product.name}</h3>
-            <p>Price: ${product.price}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await axios.get('http://127.0.0.1:8000/api/v1/Products/');
+                setItems(response.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+        fetchData();
+    }, []);
 
-export default FeaturedProducts;
+    return (
+        <div>
+            <h1>Item List</h1>
+            <ul>
+                {items.map(item => (
+                    <li key={item.id}>
+                        <h3>{item.name}</h3>
+                        <p>{item.description}</p>
+                        <Image src={item.image} alt={item.name} width={200} height={200} />
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+
+export default ItemList;
