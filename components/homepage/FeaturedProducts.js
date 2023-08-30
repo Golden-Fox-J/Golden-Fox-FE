@@ -38,6 +38,7 @@ function FeaturedProducts() {
   );
 }
 
+
 export default FeaturedProducts;
 
 
