@@ -31,11 +31,11 @@ export default function Home() {
         if (typeof window !== 'undefined' && window.localStorage) {
             
             let token_pef = localStorage.getItem('token')
-            console.log(11111,token_pef)
+            // console.log(11111,token_pef)
 
             setToken(JSON.parse(localStorage.getItem('token')))
 
-            console.log(token)
+            // console.log(token)
         }
     }, []);
 

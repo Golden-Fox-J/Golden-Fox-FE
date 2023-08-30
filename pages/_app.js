@@ -9,6 +9,7 @@ import "keen-slider/keen-slider.min.css";
 import "../styles/login.css"
 import "../components/login/loginForm.css"
 import "../components/profilePage/profilePage.css"
+import "../components/details/details.css"
 
 export default function App({ Component, pageProps }) {
   return <AuthProvider >
