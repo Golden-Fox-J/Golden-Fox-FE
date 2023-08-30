@@ -40,3 +40,8 @@ nav {
 .nav a:hover {
   color: #f39c12;
 }
+
+.navbar_logout_button{
+  background-color: #02000E;
+  border: none;
+}

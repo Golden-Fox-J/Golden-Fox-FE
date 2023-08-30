@@ -1,7 +1,6 @@
 import { useState } from "react"
-import Form from "components/form"
 import { useAuth } from "context/auth"
-
+import LoginForm from "components/login/loginForm"
 
 export default function Login_form() {
     
@@ -9,19 +8,20 @@ export default function Login_form() {
     const {login} = useAuth()
     async function loginHandler(event){
         event.preventDefault()
-        console.log("hi")
+        console.log(6666666,"hi")
         let userName =event.target.userName.value
         let password =event.target.password.value
         // setUserInfo([userName,password])
+
         login(userName,password)
   }
 
 
     return (
 
-        <>
-            <Form loginHandler={loginHandler} />
+        <div>
+            <LoginForm loginHandler={loginHandler} />
 
-        </>
+        </div>
     )
 }

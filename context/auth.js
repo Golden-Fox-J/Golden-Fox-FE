@@ -35,9 +35,11 @@ export function AuthProvider(props){
         }
         const response = await fetch(url,options )
         const data = await response.json()
+
+        localStorage.setItem("token",JSON.stringify(data))
+
         console.log(11111,data)
         const decodedToken = jwt.decode(data.access)
-       
         console.log(123,decodedToken)
         
 
@@ -49,10 +51,14 @@ export function AuthProvider(props){
                 username :decodedToken.username ,
                 email : decodedToken.email ,
                 id : decodedToken.user_id, 
-            }: ""
+            }: null
         }
         setState(prevState=> ({...prevState,... newState}));
-        decodedToken ? window.location.href = '/' : alert("Wrong password or user name")
+        
+        decodedToken ? (
+        console.log(decodedToken),
+        localStorage.setItem("decodedToken",JSON.stringify(decodedToken)),
+        window.location.href = '/' ) : alert("Wrong username or password")
         // setState(newState)
     }
     function logout(){
@@ -60,7 +66,11 @@ export function AuthProvider(props){
             token : null, 
             user : null
         }
+        localStorage.removeItem('decodedToken')
+        window.location.href = '/'
         setState(prevState=> ({...prevState,... newState}));
+
+
 
     }
 
