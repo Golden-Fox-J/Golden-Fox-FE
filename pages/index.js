@@ -5,6 +5,7 @@ import Navbar from "components/layout/Navbar";
 import Footer from "components/layout/Footer";
 import HeroSection from "components/homepage/HeroSection";
 import FeaturedProducts from "components/homepage/FeaturedProducts";
+import FavoriteList from "components/favorite";
 import { useAuth } from "context/auth";
 
 
@@ -16,6 +17,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <FeaturedProducts />
+      <FavoriteList/>
       <Footer />
     </div>
   );
