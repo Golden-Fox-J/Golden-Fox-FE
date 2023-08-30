@@ -1,36 +1,59 @@
 import React from 'react';
-export default function Details() {
+import Image from 'next/image';
+import { comment } from 'postcss';
+import useResource from 'hooks/useResource';
+
+export default function Details({ producTitle, response , comments ,decodedToken}) {
+
+   
+    const {createResource} = useResource("favourite_product")
+    function handleAddToFav(productId){
+        // console.log(1111111,decodedToken.user_id)
+        // console.log(222222,productId)
+        const body = {
+            owner : decodedToken.user_id,
+            Product : productId
+        }
+        createResource(body)
+    }
+
+
+
     return (
-        <div className="addProduct">
-        <div className="card">
-            <nav>
-                <svg className="arrow" version="1.1" viewBox="0 0 512 512" width="512px" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xlinkHref="http://www.w3.org/1999/xlink">
-                    <polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " stroke="#727272" />
-                </svg>
-                Back to all Plants
-                <svg className="heart" version="1.1" viewBox="0 0 512 512" width="512px" xmlSpace="preserve" stroke="#727272" xmlns="http://www.w3.org/2000/svg" xlinkHref="http://www.w3.org/1999/xlink">
-                    <path d="M340.8,98.4c50.7,0,91.9,41.3,91.9,92.3c0,26.2-10.9,49.8-28.3,66.6L256,407.1L105,254.6c-15.8-16.6-25.6-39.1-25.6-63.9  c0-51,41.1-92.3,91.9-92.3c38.2,0,70.9,23.4,84.8,56.8C269.8,121.9,302.6,98.4,340.8,98.4 M340.8,83C307,83,276,98.8,256,124.8  c-20-26-51-41.8-84.8-41.8C112.1,83,64,131.3,64,190.7c0,27.9,10.6,54.4,29.9,74.6L245.1,418l10.9,11l10.9-11l148.3-149.8  c21-20.3,32.8-47.9,32.8-77.5C448,131.3,399.9,83,340.8,83L340.8,83z" stroke="#727272" />
-                </svg>
-            </nav>
-            <div className="photo">
-                <img src="https://s-media-cache-ak0.pinimg.com/236x/3b/36/ca/3b36ca3afe0fa0fd4984b9eee2e154bb.jpg" alt="Plant" />
-            </div>
-            <div className="description">
-                <h2>Classic Peace Lily</h2>
-                <h4>Popular House Plant</h4>
-                <h1>$18</h1>
-                <p>Classic Peace Lily is a spathiphyllum floor plant arranged in a bamboo planter with a blue & red ribbon and butterfly pick.</p>
-                <button>Add to Cart</button>
-                <button>Wishlist</button>
-            </div>
+
+        <div className='detailBody'>
+            {/* {console.log(7777777,comments)} */}
+            {/* {console.log(88888,decodedToken)} */}
+            {response ? (response.map((product) => <div >{product.Title == producTitle ?
+            <div className='detailCard'>
+
+                <div className='detailImage'>
+                    <Image className='detailImage' src={product.image} alt={product.Title} width='400' height='400' />
+                </div>
+
+                <div className='detailTexts'>
+                    
+                    <h2 className='detailTextss'>Title: {producTitle}</h2>
+                    <p className='detailTextss'>Description: {product.description}</p>
+                    <p className='detailTextss'>Price: {product.price} J</p>
+                    <p className='detailTextss'>Contact Info: {product.contact_info}</p>
+                    <p className='detailTextss'>Comments:</p>
+                    {comments ? (comments.map((comment)=> comment.Product == product.id ? <p className='detailTextss'>{decodedToken.username}: {comment.body}</p> : <p></p>)) : <p></p>}
+                    <div className='favButtonBody'><button className='favButton'>Add</button></div>
+                    
+                </div>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+                <div className='detailHeart' key={product.id} onClick={()=>handleAddToFav(product.id)}><i class="fa fa-heart"></i></div>
+                
+
+            </div> : <p></p>}</div>)) : <p></p>}
+
         </div>
-        </div>
-
-    );
-};
 
 
 
+    )
+}
 
 
 
@@ -41,31 +64,4 @@ export default function Details() {
 
 
 
-
-/* <div>
-
-<div>
-<img src="public/images/w2.jpg"/>  
-</div>
-
-<div>
-<h2>Title: Apple Watch</h2>
-<img src="public/images/w2.jpg"/>
-<p>Details: 2020 Apple watch ,hear detection and calling properity</p>
-<p>Price: 200 J</p>
-<p>Contact Informations: +962145766324</p>
-</div>
-
-
-
-
-</div>
-
-
-
-<h2>Title: Apple Watch</h2>
-<img src="public/images/w2.jpg"/>
-<p>Details: 2020 Apple watch ,hear detection and calling properity</p>
-<p>Price: 200 J</p>
-<p>Contact Informations: +962145766324</p> */
 

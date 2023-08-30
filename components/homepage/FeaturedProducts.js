@@ -1,5 +1,7 @@
 import useResource from 'hooks/useResource';
 import Image from 'next/image'
+import Link from 'next/link';
+import { useState } from 'react';
 
 
 function FeaturedProducts() {
@@ -12,7 +14,15 @@ function FeaturedProducts() {
   // const orig = 'http://localhost:8000/'
 
   
+
+  
   const { response, createResource, deleteResource } = useResource()
+
+  function handleProductId(title){
+    localStorage.setItem("producTitle",title)
+    
+  }
+ 
   
 
   const products = response
@@ -26,11 +36,13 @@ function FeaturedProducts() {
         {/* {console.log(6666666,fetchResource().then(response=>{console.log(77777,response)}))} */}
         
         {products ? products.map(product => (
-          <div key={product.id} className="product">
-            <Image src={product.image} alt={product.Title} width='200' height='200' />
+          <Link href="/productDetails">
+          <div key={product.id} className="product" onClick={()=>handleProductId(product.Title)}>
+            <Image src={product.image}  width='200' height='200' />
             <h3>{product.Title}</h3>
             <p>Price: {product.price}</p>
           </div>
+          </Link>
         )) : ""}
         
       </div>
