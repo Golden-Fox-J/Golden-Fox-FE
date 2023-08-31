@@ -30,7 +30,7 @@ export default function ProductDeatils(){
             setproducTitle(localStorage.getItem('producTitle'))
         }
     }, []);
-    
+
     
 
 
@@ -43,7 +43,7 @@ export default function ProductDeatils(){
 
 
 
-    const [comments , setComments] = useState()
+    const [comments , setComments] = useState([])
     useEffect(() => {
         async function getComments() {
             try {
@@ -54,7 +54,7 @@ export default function ProductDeatils(){
             }
         }
         getComments();
-    }, []);
+    }, [comments]);
     
 
 
