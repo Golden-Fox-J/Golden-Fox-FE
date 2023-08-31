@@ -7,8 +7,20 @@ import axios from 'axios';
 
 export default function ProductDeatils(){
     
-    const { response, createResource, deleteResource } = useResource()
+    // const { response, createResource, deleteResource } = useResource()
 
+    const [products , setproducts] = useState()
+    useEffect(() => {
+        async function getProducts() {
+            try {
+                const response = await axios.get(process.env.NEXT_PUBLIC_API_RESOURCE_URL);
+                setproducts(response.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+        getProducts();
+    }, []);
 
 
     const [producTitle, setproducTitle] = useState()
@@ -19,6 +31,8 @@ export default function ProductDeatils(){
         }
     }, []);
     
+    
+
 
     const [decodedToken, setDecodedToken] = useState()
     useEffect(() => {
@@ -48,7 +62,7 @@ export default function ProductDeatils(){
     return(
         <>
         <Navbar decodedToken={decodedToken} />
-        <Details producTitle={producTitle} response={response} comments={comments} decodedToken={decodedToken}/>
+        <Details producTitle={producTitle}  comments={comments} decodedToken={decodedToken} products={products}/>
         <Footer />
 
 

@@ -1,7 +1,8 @@
 import useResource from 'hooks/useResource';
 import Image from 'next/image'
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 
 function FeaturedProducts() {
@@ -16,16 +17,31 @@ function FeaturedProducts() {
   
 
   
-  const { response, createResource, deleteResource } = useResource()
+  // const { response, createResource, deleteResource } = useResource()
 
   function handleProductId(title){
     localStorage.setItem("producTitle",title)
     
   }
+
+
+  
+  const [products , setproducts] = useState()
+  useEffect(() => {
+      async function getProducts() {
+          try {
+              const response = await axios.get(process.env.NEXT_PUBLIC_API_RESOURCE_URL);
+              setproducts(response.data);
+          } catch (error) {
+              console.error('Error fetching data:', error);
+          }
+      }
+      getProducts();
+  }, []);
  
   
 
-  const products = response
+  
 
   return (
 
@@ -34,7 +50,7 @@ function FeaturedProducts() {
       <div className="product-list">
 
         {/* {console.log(6666666,fetchResource().then(response=>{console.log(77777,response)}))} */}
-        
+        {console.log(555555,products)}
         {products ? products.map(product => (
           <Link href="/productDetails">
           <div key={product.id} className="product" onClick={()=>handleProductId(product.Title)}>

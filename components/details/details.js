@@ -2,31 +2,65 @@ import React from 'react';
 import Image from 'next/image';
 import { comment } from 'postcss';
 import useResource from 'hooks/useResource';
+import { useState,useEffect } from 'react';
 
-export default function Details({ producTitle, response , comments ,decodedToken}) {
+export default function Details({ producTitle , comments ,decodedToken, products}) {
 
+
+    
+
+    
    
-    const {createResource} = useResource("favourite_product")
+    const createResource_fav = useResource("Favourite_product").createResource
     function handleAddToFav(productId){
-        // console.log(1111111,decodedToken.user_id)
-        // console.log(222222,productId)
         const body = {
             owner : decodedToken.user_id,
             Product : productId
         }
-        createResource(body)
+        createResource_fav(body)
     }
+
+
+    
+    let body = {}
+    function addComment(ownerId,productId){
+        body.owner = ownerId
+        body.Product = productId
+        
+    }
+    
+    const createResource_comment = useResource("comment").createResource
+    function handleAddComment(event){
+        // event.preventDefault()
+        
+        body.email= event.target.email.value
+        body.body = event.target.comment.value
+        createResource_comment(body)
+        console.log(7777777777,body)
+        
+    }
+    
+    
 
 
 
     return (
+        <div className='outDetail'>
 
         <div className='detailBody'>
             {/* {console.log(7777777,comments)} */}
-            {/* {console.log(88888,decodedToken)} */}
-            {response ? (response.map((product) => <div >{product.Title == producTitle ?
+            {console.log(88888,decodedToken)}
+            {console.log(99999,products)}
+            {products ? (products.map((product) => <div >{product.Title == producTitle ?
             <div className='detailCard'>
 
+                {decodedToken ? (<form onSubmit={handleAddComment}>
+                <div><label>add your Email<input name='email' type='email' placeholder='add your Email'></input ></label></div> 
+                <div><label>add your comment<input name='comment' type='text' placeholder='add your comment'></input></label></div> 
+                <button onClick={addComment(decodedToken.user_id,product.id)}>Add Comment</button>
+                </form>
+                ) : ''}
+                
                 <div className='detailImage'>
                     <Image className='detailImage' src={product.image} alt={product.Title} width='400' height='400' />
                 </div>
@@ -38,15 +72,21 @@ export default function Details({ producTitle, response , comments ,decodedToken
                     <p className='detailTextss'>Price: {product.price} J</p>
                     <p className='detailTextss'>Contact Info: {product.contact_info}</p>
                     <p className='detailTextss'>Comments:</p>
-                    {comments ? (comments.map((comment)=> comment.Product == product.id ? <p className='detailTextss'>{decodedToken.username}: {comment.body}</p> : <p></p>)) : <p></p>}
-                    <div className='favButtonBody'><button className='favButton'>Add</button></div>
+                    {comments ? (comments.map((comment)=> comment.Product == product.id ? <p className='detailTextss'>{comment.body}</p> : <p></p>)) : <p></p>}
+                    {decodedToken ? <div className='favButtonBody'><button className='favButton'>Add</button></div> : <p></p>}
+                    
                     
                 </div>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-                <div className='detailHeart' key={product.id} onClick={()=>handleAddToFav(product.id)}><i class="fa fa-heart"></i></div>
+                {decodedToken ? <div className='detailHeart' key={product.id} onClick={()=>handleAddToFav(product.id)}><i class="fa fa-heart"></i></div> : <p></p>}
+                
                 
 
-            </div> : <p></p>}</div>)) : <p></p>}
+            </div> 
+            
+            : <p></p>}</div>)) : <p></p>}
+
+        </div>
 
         </div>
 
