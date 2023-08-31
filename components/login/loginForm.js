@@ -12,9 +12,11 @@ function LoginForm({loginHandler}) {
       <div className="signup">
         <form >
           <label className='login_label' htmlFor="chk" aria-hidden="true">Sign up</label>
-          <input className='login_input' type="text" name="txt" placeholder="User name" required />
-          <input className='login_input' type="email" name="email" placeholder="Email" required />
-          <input className='login_input' type="password" name="pswd" placeholder="Password" required />
+          <input className='login_input' type="text" name="Your User Name" placeholder="User name" required />
+          <input className='login_input' type="email" name="Your Email" placeholder="Email" required />
+          <input className='login_input' type="password" name="Your password" placeholder="Password" required />
+          <input className='login_input' type="password" name="Retype password" placeholder="Password" required />
+
           <button className='login_buttom'>Sign up</button>
         </form>
       </div>

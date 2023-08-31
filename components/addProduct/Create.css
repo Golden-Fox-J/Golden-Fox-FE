@@ -1,0 +1,16 @@
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.body_create{
+   background-image:url(./addproduct.jpg);
+   color:white;
+   font-weight:Bold;
+   font-size:20px;
+   
+  
+  
+   
+  
+}
