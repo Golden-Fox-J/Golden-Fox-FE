@@ -22,6 +22,7 @@ export default function Account (){
         <>
             <Navbar decodedToken={decodedToken}/>
             <ProfilePage />
+            
         
         </>
     )

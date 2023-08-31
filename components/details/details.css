@@ -1,23 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat:300,400,700,800|Open+Sans:300');
 
-.addProduct {
-  background-image: linear-gradient(
-    to right bottom,
-    #b91eda,
-    #a02ae0,
-    #8234e5,
-    #5d3be8,
-    #1241eb
-  );
+.addProduct, body {
+  /* background-image: linear-gradient( */
+  background : #aedaa6;
+
   height: 100%;
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-main{
-  max-width: 720px;
-  margin: 5% auto;
+.main{
+  max-width: 520px;
+  margin: 4% auto;
 }
 
 .card{
@@ -102,7 +97,7 @@ main{
       }
     }
     
-    .image{
+    .half image{
       padding-top: 15px;
       width: 100%;
       
@@ -116,7 +111,7 @@ main{
     .description{
       margin-bottom: 25px;
       
-      p{
+      p,.des{
         margin: 0;
         font-family: "Open Sans", sans-serif;
         font-weight: 300;
@@ -198,16 +193,20 @@ main{
     }
     
     .action{
-      button{
-        cursor: pointer;
-        border: 1px solid #115dd8;
-        padding: 14px 30px;
-        border-radius: 200px;
-        color: #fff;
-        background: #115dd8;
-        font-family: "Open Sans", sans-serif;
-        font-size: 16px;
-        transition: 200ms;
+      .bo,.boo{
+      outline: 0;
+      border: 0;
+      background: none;
+      border: 1px solid #d9d9d9;
+      padding: 8px 0px;
+      margin-bottom: 30px;
+      color: #515151;
+      text-transform: uppercase;
+      width: 125px;
+      font-family: inherit;
+      margin-right: 5px;
+      transition: all 0.3s ease;
+      font-weight: 500;
         
         &:hover{
           background: #fff;
@@ -217,3 +216,57 @@ main{
     }
   }
 }
+body .card .photo {
+  padding: 30px;
+  width: 45%;
+  text-align: center;
+  float: left;}
+.price{
+    margin: 0;
+    padding: 0;
+    font-family: "Fjalla One", sans-serif;
+    color: #252525;
+    font-size: 26px;
+  }
+
+h1{
+    margin: 0;
+    padding: 0;
+    font-weight: 800;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    line-height: 50px;
+    color: #181e28;}
+.sub{
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: #686e77;
+      font-weight: 300;
+      margin-bottom: 5px;
+    }
+p,.des{
+      margin: 0;
+      margin-bottom: 25px;
+
+      font-family: "Open Sans", sans-serif;
+      font-weight: 300;
+      line-height: 27px;
+      font-size: 16px;
+      color: #555;
+    }
+h3{
+      flex: 0 1 200px;
+      text-align: center;
+      margin: 0;
+      color: #e3d90d;
+      font-family: sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      text-transform: uppercase;
+    }
+img{
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
