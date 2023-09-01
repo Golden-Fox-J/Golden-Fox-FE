@@ -3,7 +3,11 @@ import { useState } from "react";
 import useSWR from 'swr'
 import { useEffect } from "react";
 
-export default function useResource() {
+
+
+
+
+export default function useResource(restOfURL = '') {
 
     const [token, setToken] = useState()
     useEffect(() => {
@@ -19,7 +23,7 @@ export default function useResource() {
     }, []);
 
 
-    const url = process.env.NEXT_PUBLIC_API_RESOURCE_URL
+    const url = process.env.NEXT_PUBLIC_API_RESOURCE_URL+restOfURL
     
     
     // const [data, setDate]= useState([]);
@@ -45,7 +49,7 @@ export default function useResource() {
         try {
             const response = await fetch(url, config())
             const jsonResponse  = await response.json()
-            console.log(1111,jsonResponse)
+            // console.log(1111,jsonResponse)
             // setDate(jsonResponse)
             return jsonResponse
 
@@ -55,6 +59,7 @@ export default function useResource() {
         }
 
     }
+    
     async function createResource(newLocation){
 
         if (!token) {
@@ -102,6 +107,9 @@ export default function useResource() {
         logout()
 
     }
+
+
+
 
 
     return {

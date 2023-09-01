@@ -18,9 +18,11 @@ function Navbar({decodedToken}) {
     </div>
     <ul>
         <li><Link href="/">Home</Link></li>
-        <li><Link href="/about">About</Link></li>
-        <li><Link href="/profile">Profile</Link></li>
-        <li><Link href="/register">Register</Link></li>
+
+        <li><Link href="/account">Profile</Link></li>
+        <li><Link href="/products">About</Link></li>
+        {decodedToken? <li><Link href="/favoritelist">Favorite Items</Link></li> : null}
+
         {decodedToken ? <li><button className='navbar_logout_button' onClick={logout} ><Link href="/">Log Out</Link></button></li> : <li><Link href="/login">Log In</Link></li>}
         
         
