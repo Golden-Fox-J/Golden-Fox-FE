@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 
 
 const ProfilePage = ({decodedToken,useResource}) => {
@@ -56,4 +57,6 @@ const ProfilePage = ({decodedToken,useResource}) => {
     )
 };
 
-export default ProfilePage;
+
+
+export default UserProfile;

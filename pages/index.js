@@ -6,6 +6,7 @@ import Navbar from "components/layout/Navbar";
 import Footer from "components/layout/Footer";
 import HeroSection from "components/homepage/HeroSection";
 import FeaturedProducts from "components/homepage/FeaturedProducts";
+import Categories from "components/homepage/Categories";
 import { useAuth } from "context/auth";
 
 
@@ -47,7 +48,8 @@ export default function Home() {
       {console.log(decodedToken)}
       <Navbar decodedToken={decodedToken}/>
       <HeroSection />
-      <FeaturedProducts />
+      <Categories />
+      {/* <FeaturedProducts /> */}
       <Footer />
     </div>
   );

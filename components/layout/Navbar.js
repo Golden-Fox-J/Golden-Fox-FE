@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import logoImage from '../../public/images/Logo22.png';
+import bellIcon from '../../public/icons/bell.png';
+import heartIcon from '../../public/icons/heart.png';
+import profilePicture from '../../public/icons/profile.png';
 import { useAuth } from 'context/auth';
 
 function Navbar({decodedToken}) {
