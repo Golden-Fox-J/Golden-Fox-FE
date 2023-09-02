@@ -1,20 +1,52 @@
 import React from 'react';
+import { useState } from 'react';
 // import './slideNavbarStyle.css'; // Make sure to import your CSS file
 // import 'https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap';
 
 
 function LoginForm({loginHandler}) {
+
+  
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const body = {username,password,email}
+
+  const handleRegister = async (event) => {
+    event.preventDefault()
+    setUsername(event.target.username.value)
+    setPassword(event.target.password.value)
+    setEmail(event.target.email.value)
+    
+  const response = await fetch(process.env.NEXT_PUBLIC_URL+"account/signup/", {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (response.ok) {
+        // Registration successful, handle accordingly (e.g., show a success message)
+        alert("Registration successful")
+    } else {
+        // Registration failed, handle error (e.g., show an error message)
+        alert("Registration failed")
+    }
+};
+
+  
   return (
     <div className='body_login'>
     <div className="main_login">
       <input className='login_input' type="checkbox" id="chk" aria-hidden="true" />
 
       <div className="signup">
-        <form >
+        <form onSubmit={handleRegister}>
           <label className='login_label' htmlFor="chk" aria-hidden="true">Sign up</label>
-          <input className='login_input' type="text" name="txt" placeholder="User name" required />
+          <input className='login_input' type="text" name="username" placeholder="User name" required />
           <input className='login_input' type="email" name="email" placeholder="Email" required />
-          <input className='login_input' type="password" name="pswd" placeholder="Password" required />
+          <input className='login_input' type="password" name="password" placeholder="Password" required />
           <button className='login_buttom'>Sign up</button>
         </form>
       </div>

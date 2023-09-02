@@ -1,54 +1,62 @@
 import React, { useEffect, useState } from 'react';
 
-function UserProfile() {
-  const [userData, setUserData] = useState(null);
 
-  useEffect(() => {
-    const fetchUserProfile = async () => {
-      try {
-        const token = localStorage.getItem('access_token');
-        const response = await fetch('http://127.0.0.1:8000/api/profile/', {
-          headers: {
-            Authorization: `Bearer ${token}`, // Include JWT token
-          },
-        });
 
-        if (response.ok) {
-          const data = await response.json();
-          setUserData(data);
-        } else {
-          console.error('Error fetching user profile:', response.statusText);
+const ProfilePage = ({decodedToken,useResource}) => {
+
+    
+        
+    const createResource_product = useResource().createResource
+    // function handleAddToFav() {
+    //     console.log(handleCreate)
+    //     const body = handleCreate
+    //     createResource_product(body)
+
+    // }
+
+    // last version 
+
+    function handleCreate(e){
+        e.preventDefault()
+        const pro_body = {
+            owner : decodedToken.user_id,
+            owner_name : decodedToken.username,
+            Title : e.target.Title.value,
+            image : e.target.image.value,
+            description : e.target.description.value,
+            price : e.target.price.value,
+            contact_info : e.target.contact_info.value,
+            category : document.getElementById("category").value
         }
-      } catch (error) {
-        console.error('Error fetching user profile:', error);
-      }
-    };
+        
+        createResource_product(pro_body)
+        
+    }
 
-    fetchUserProfile();
-  }, []);
 
-  return (
-    <div>
-      <h1>User Profile</h1>
-      {userData && (
-        <div>
-          <h2>{userData.user_profile.username}</h2>
-          <h3>Favorite Products</h3>
-          <ul>
-            {userData.fav_products.map(product => (
-              <li key={product.id}>{product.Product.Title}</li>
-            ))}
-          </ul>
-          <h3>Comments</h3>
-          <ul>
-            {userData.comments.map(comment => (
-              <li key={comment.id}>{comment.body}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  );
-}
+    return (
+        <>
+            <form onSubmit={handleCreate}>
+                {/* <label>ownerId<inpu/></label> */}
+                {/* <label>ownerName<inpu/></label> */}
+                <label>Title<input type='text' name='Title'/></label>
+                <label>Description<input type='text' name='description'/></label>
+                <input type="file" id="image" name="image" accept="image/*"/>
+                <label>Price<input type='number' name='price'/></label>
+                <label>Contact info<input type='text' name='contact_info'/></label>
+                <label for="cars">Choose a car:</label>
+                <select name="category" id="category" >
+                    <option value="cars">cars</option>
+                    <option value="houses">houses</option>
+                    <option value="electronics">electronics</option>
+                </select>
+                <button>create</button>
+
+            </form>
+        </>
+    )
+};
+
+
 
 export default UserProfile;

@@ -1,16 +1,31 @@
-import { useRouter } from 'next/router';
-import UserProfile from '../components/profilePage/profilePage';
 
-function ProfilePage() {
-  const router = useRouter();
-  const { userId } = router.query;
+import Navbar from "components/layout/Navbar"
+import ProfilePage from "components/profilePage/profilePage";
+import { useState } from "react"
+import { useEffect } from "react";
+import useResource from "hooks/useResource";
 
-  return (
-    <div>
-      <h1>User Profile</h1>
-      {userId && <UserProfile userId={userId} />}
-    </div>
-  );
+
+
+
+export default function Profile (){
+
+    const [decodedToken, setDecodedToken] = useState()
+    useEffect(() => {
+        if (typeof window !== 'undefined' && window.localStorage) {
+        setDecodedToken(JSON.parse(localStorage.getItem('decodedToken')))
+        }
+    }, []);
+
+
+
+
+    return(
+        <>
+            <Navbar decodedToken={decodedToken}/>
+            <ProfilePage decodedToken={decodedToken} useResource={useResource}/>
+        
+        </>
+    )
 }
 
-export default ProfilePage;
