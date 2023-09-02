@@ -2,11 +2,12 @@ import Navbar from "components/layout/Navbar"
 import ProfilePage from "components/profilePage/profilePage";
 import { useState } from "react"
 import { useEffect } from "react";
+import useResource from "hooks/useResource";
 
 
 
 
-export default function Account (){
+export default function Profile (){
 
     const [decodedToken, setDecodedToken] = useState()
     useEffect(() => {
@@ -21,7 +22,7 @@ export default function Account (){
     return(
         <>
             <Navbar decodedToken={decodedToken}/>
-            <ProfilePage />
+            <ProfilePage decodedToken={decodedToken} useResource={useResource}/>
         
         </>
     )

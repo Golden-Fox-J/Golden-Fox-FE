@@ -29,7 +29,7 @@ export default function Details({ producTitle, comments, decodedToken, products 
     function handleAddComment(event) {
 
         event.preventDefault()
-        body.name = decodedToken.username
+        body.owner_name = decodedToken.username
         body.email = event.target.email.value
         body.body = event.target.comment.value
         createResource_comment(body)
@@ -78,7 +78,7 @@ export default function Details({ producTitle, comments, decodedToken, products 
 
                         <div className='commentSection'>
                             <p className='commentSection_1'>Comments:</p>
-                            {comments ? (comments.map((comment) => comment.Product == product.id ? <p className='commentSection_2'>{comment.name}:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{comment.body}<p>{comment.email}</p></p> : <p></p>)) : <p></p>}
+                            {comments ? (comments.map((comment) => comment.Product == product.id ? <p className='commentSection_2'>{comment.owner_name}:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{comment.body}<p>{comment.email}</p></p> : <p></p>)) : <p></p>}
 
 
                             {decodedToken ? (<form className='addCommentForm' onSubmit={handleAddComment}>

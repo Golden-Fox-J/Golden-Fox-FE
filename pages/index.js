@@ -44,7 +44,7 @@ export default function Home() {
 
   return (
     <div>
-      
+      {console.log(decodedToken)}
       <Navbar decodedToken={decodedToken}/>
       <HeroSection />
       <FeaturedProducts />

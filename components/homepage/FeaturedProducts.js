@@ -7,17 +7,7 @@ import axios from 'axios';
 
 function FeaturedProducts() {
 
-//   async function fetchResource() {
-//     const response = await fetch(process.env.NEXT_PUBLIC_API_RESOURCE_URL);
-//     const jsonResponse = await response.json();
-//     return jsonResponse; // Return the array directly
-//   }
-  // const orig = 'http://localhost:8000/'
 
-  
-
-  
-  // const { response, createResource, deleteResource } = useResource()
 
   function handleProductId(title){
     localStorage.setItem("producTitle",title)
