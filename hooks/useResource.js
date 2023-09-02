@@ -69,7 +69,7 @@ export default function useResource(restOfURL = '') {
             const options =config()
             options.method ="POST"
             options.body  = JSON.stringify(newLocation)
-    
+            console.log(111111,options)
             await fetch(url, options )
             mutate()
 

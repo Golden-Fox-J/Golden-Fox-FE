@@ -12,7 +12,8 @@ export default function Details({ producTitle, comments, decodedToken, products 
     function handleAddToFav(productId) {
         const body = {
             owner: decodedToken.user_id,
-            Product: productId
+            Product: productId,
+            owner_name: decodedToken.username,
         }
         createResource_fav(body)
     }
