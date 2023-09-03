@@ -10,6 +10,7 @@ import "../styles/login.css"
 import "../components/login/loginForm.css"
 import "../components/profilePage/profilePage.css"
 import "../components/details/details.css"
+import "../components/favorite/favorite.css"
 
 export default function App({ Component, pageProps }) {
   return <AuthProvider >

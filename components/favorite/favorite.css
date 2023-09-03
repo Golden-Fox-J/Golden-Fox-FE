@@ -1,0 +1,109 @@
+/* styles.css */
+.favoriteFullPage{
+    width: 100%;
+}
+.favoriteListDiv{
+    display: flex;
+    flex-wrap: wrap; 
+    flex-direction: column;
+    
+
+}
+/* Container for the entire favorite list */
+.outDetail {
+    display: flex;
+    flex-wrap: wrap; /* Allow products to wrap to the next line if the container is too narrow */
+    justify-content: center; /* Center products horizontally */
+    flex-direction: row;
+    
+}
+    
+  
+  
+  /* Container for each product card */
+  .detailCard {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    width: 300px; /* Adjust the width as needed */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center content horizontally */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    /* flex-direction: row; */
+    width: 200px;
+    height: 300px;
+  }
+  
+  /* Image container */
+  .detailImageC {
+    margin-bottom: 10px;
+    max-width: 200px;
+    max-height: 200px;
+    overflow: hidden;
+  }
+  
+  /* Product image */
+  .detailImage {
+    width: 150px;
+    height:200px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  /* Text container */
+  .detailTexts {
+    text-align: center; /* Center text within the card */
+  }
+  
+  /* Product title */
+  .detailTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Product description */
+  .detailDescription {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  /* Product price */
+  .detailPrice {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FF5733; /* Change to your desired color */
+    margin-bottom: 5px;
+  }
+  
+  /* Contact info */
+  .detailContact {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Loading message */
+  .loading-message {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  /* Error message */
+  .error-message {
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    margin-top: 20px;
+  }
+  
+  /* Centering loading and error messages */
+  .detailBody {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap; 
+    
+  }
+  
