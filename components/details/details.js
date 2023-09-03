@@ -3,16 +3,21 @@ import Image from 'next/image';
 import { comment } from 'postcss';
 import useResource from 'hooks/useResource';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Details({ producTitle, comments, decodedToken, products }) {
 
-
-
+    const { response, createResource, deleteResource } = useResource("comment/")
+    function handleCommentDelete (id){
+        deleteResource(id)
+    }
+    
     const createResource_fav = useResource("Favourite_product").createResource
     function handleAddToFav(productId) {
         const body = {
             owner: decodedToken.user_id,
-            Product: productId
+            Product: productId,
+            owner_name: decodedToken.username,
         }
         createResource_fav(body)
     }
@@ -30,7 +35,7 @@ export default function Details({ producTitle, comments, decodedToken, products 
 
         event.preventDefault()
         body.owner_name = decodedToken.username
-        body.email = event.target.email.value
+        body.email = decodedToken.email
         body.body = event.target.comment.value
         createResource_comment(body)
     }
@@ -54,8 +59,10 @@ export default function Details({ producTitle, comments, decodedToken, products 
                         <div className='detailCard'>
 
                             <div className='detailImageC'>
-                                <Image className='detailImage' src={product.image} alt={product.Title} width='500' height='420' />
+                                <Image className='detailImage' src={product.image} alt={product.Title} width='550' height='450' />
                             </div>
+
+                            <div class="vl"></div>
 
                             <div className='detailTexts'>
 
@@ -76,10 +83,15 @@ export default function Details({ producTitle, comments, decodedToken, products 
 
                         </div>
 
-                        <div className='commentSection'>
-                            <p className='commentSection_1'>Comments:</p>
-                            {comments ? (comments.map((comment) => comment.Product == product.id ? <p className='commentSection_2'>{comment.owner_name}:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{comment.body}<p>{comment.email}</p></p> : <p></p>)) : <p></p>}
-
+                        <p className='commentSection'>Comments:</p>
+                        
+                            
+                            
+                            {comments ? (comments.map((comment) => comment.Product == product.id ? <div className='commentSection_1'> 
+                            <div className='commentSection_1_1'><img className='commentImage' src='https://img.freepik.com/premium-vector/fox-logo-design_104950-572.jpg' alt='fox' width='40' height='40'/> 
+                            <p className='commentusername'>{comment.owner_name}:</p><p className='commentitself'>{comment.body}</p></div><p className='creationtime'>{comment.time_since_creation[0] ? comment.time_since_creation[8] == 0 ? comment.time_since_creation.slice(17,)+' ago' : 
+                            comment.time_since_creation.slice(8,15)+" ago" : comment.time_since_creation.slice(0,5)+"ago"}</p> <div className='deleteButton' onClick={()=>handleCommentDelete(comment.id)}>Delete</div></div>  : <p></p>)) : <p></p>}
+                           
 
                             {decodedToken ? (<form className='addCommentForm' onSubmit={handleAddComment}>
 
@@ -91,13 +103,7 @@ export default function Details({ producTitle, comments, decodedToken, products 
                                                 <span className="field__label">Text</span>
                                             </span>
                                     </div>
-                                    <div className="field field_v2">
-                                        <label for="last-name" className="ha-screen-reader">Email</label>
-                                        <input name='email' id="last-name" className="field__input" placeholder=""/>
-                                            <span className="field__label-wrap" aria-hidden="true">
-                                                <span className="field__label">Email</span>
-                                            </span>
-                                    </div>
+                                    
                                     
                                 </div>
                                 
@@ -105,7 +111,7 @@ export default function Details({ producTitle, comments, decodedToken, products 
                                 <button class="button-36" role="button" type='submit' onClick={() => addComment(decodedToken.user_id, product.id)}>Add Comment</button>
                             </form>
                             ) : ''}
-                        </div>
+                        
 
                     </div>
 

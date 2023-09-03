@@ -7,6 +7,7 @@ import axios from 'axios';
 
 export default function ProductDeatils(){
     
+    
     // const { response, createResource, deleteResource } = useResource()
 
     const [products , setproducts] = useState()
@@ -62,7 +63,7 @@ export default function ProductDeatils(){
     return(
         <>
         <Navbar decodedToken={decodedToken} />
-        <Details producTitle={producTitle}  comments={comments} decodedToken={decodedToken} products={products}/>
+        <Details producTitle={producTitle}  comments={comments} decodedToken={decodedToken} products={products} />
         <Footer />
 
 
