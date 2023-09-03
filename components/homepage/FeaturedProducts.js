@@ -9,8 +9,8 @@ function FeaturedProducts() {
 
 
 
-  function handleProductId(title){
-    localStorage.setItem("producTitle",title)
+  function handleProductId(id){
+    localStorage.setItem("productId",id)
     
   }
 
@@ -36,17 +36,17 @@ function FeaturedProducts() {
   return (
 
     <section className="featured-products">
-      <h2>Products</h2>
+      <h2 className='text1'>Featured Products</h2>
+      <hr />
       <div className="product-list">
 
-        {/* {console.log(6666666,fetchResource().then(response=>{console.log(77777,response)}))} */}
-        {console.log(555555,products)}
-        {products ? products.map(product => (
-          <Link href="/productDetails">
-          <div key={product.id} className="product" onClick={()=>handleProductId(product.Title)}>
+        
+        {products ? products.slice(0,12).map(product => (
+          <Link className='productde' href="/productDetails">
+          <div key={product.id} className="product" onClick={()=>handleProductId(product.id)}>
             <Image src={product.image}  width='200' height='200' />
             <h3>{product.Title}</h3>
-            <p>Price: {product.price}</p>
+            <p>Price: {product.price} J</p>
           </div>
           </Link>
         )) : ""}

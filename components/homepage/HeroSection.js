@@ -7,6 +7,9 @@ function HeroSection() {
   const [sliderRef] = useKeenSlider({
     loop: true,
   });
+  
+
+  
 
   return (
     <section className="hero">

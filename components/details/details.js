@@ -5,12 +5,46 @@ import useResource from 'hooks/useResource';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-export default function Details({ producTitle, comments, decodedToken, products }) {
+export default function Details({ productId, comments, decodedToken, products }) {
 
     const { response, createResource, deleteResource } = useResource("comment/")
+    
+    
     function handleCommentDelete (id){
         deleteResource(id)
     }
+
+
+
+    const updateResource_comment = useResource("comment/").updateResource
+    const [editMode, setEditMode] = useState(false);
+    const [editedComment, setEditedComment] = useState('');
+    const [comBody, setcomBody] = useState({})
+    const [commentId, setcommentId] = useState('')
+    
+    function handleEditComment(commentId) {
+        const commentToEdit = comments.find((c) => c.id === commentId);
+        if (commentToEdit) {
+          setEditMode(true);
+          setEditedComment(commentToEdit.body);
+    
+        setcommentId(commentId)
+        comBody.body = editedComment
+        comBody.email = decodedToken.email
+        comBody.owner = decodedToken.user_id
+        comBody.product = productId
+        }
+      }
+      
+      function handleSaveComment() {
+        // Save the edited comment here using the createResource_comment function or any appropriate method.
+        // After saving, exit edit mode.
+        setEditMode(false);
+        updateResource_comment(comBody,commentId)
+        
+      }
+    
+    
     
     const createResource_fav = useResource("Favourite_product").createResource
     function handleAddToFav(productId) {
@@ -52,7 +86,7 @@ export default function Details({ producTitle, comments, decodedToken, products 
                 {/* {console.log(7777777,comments)} */}
                 {/* {console.log(88888, decodedToken)} */}
                 {/* {console.log(99999,products)} */}
-                {products ? (products.map((product) => <div >{product.Title == producTitle ?
+                {products ? (products.map((product) => <div >{product.id == productId ?
 
                     <div>
 
@@ -66,7 +100,7 @@ export default function Details({ producTitle, comments, decodedToken, products 
 
                             <div className='detailTexts'>
 
-                                <h2 className='detailTitle'>{producTitle}</h2>
+                                <h2 className='detailTitle'>{product.Title}</h2>
                                 <p className='detailDescription'><p className='Details'>Details:</p>{product.description}</p>
                                 <p className='detailPrice'>CURRENT PRICE: &nbsp;&nbsp;<p className='jo'>{product.price} J</p></p>
                                 <p className='detailContact'><p className='ContactInfo'>Contact Info: &nbsp;</p><p className='number'>{product.contact_info}</p></p>
@@ -89,8 +123,31 @@ export default function Details({ producTitle, comments, decodedToken, products 
                             
                             {comments ? (comments.map((comment) => comment.Product == product.id ? <div className='commentSection_1'> 
                             <div className='commentSection_1_1'><img className='commentImage' src='https://img.freepik.com/premium-vector/fox-logo-design_104950-572.jpg' alt='fox' width='40' height='40'/> 
-                            <p className='commentusername'>{comment.owner_name}:</p><p className='commentitself'>{comment.body}</p></div><p className='creationtime'>{comment.time_since_creation[0] ? comment.time_since_creation[8] == 0 ? comment.time_since_creation.slice(17,)+' ago' : 
-                            comment.time_since_creation.slice(8,15)+" ago" : comment.time_since_creation.slice(0,5)+"ago"}</p> <div className='deleteButton' onClick={()=>handleCommentDelete(comment.id)}>Delete</div></div>  : <p></p>)) : <p></p>}
+                            <p className='commentusername'>{comment.owner_name}:</p>
+                            {editMode && decodedToken.user_id == comment.owner ? (<input type="text" value={editedComment} onChange={(e) => setEditedComment(e.target.value)}/>
+                            ) : (<p className="commentitself">{comment.body}</p>)}
+                            </div><p className='creationtime'>{comment.time_since_creation[0] ? comment.time_since_creation[8] == 0 ? comment.time_since_creation.slice(17,)+' ago' : 
+                            comment.time_since_creation.slice(8,15)+" ago" : comment.time_since_creation.slice(0,5)+"ago"}</p> {decodedToken && decodedToken.user_id === comment.owner ? (
+                                <>
+                                  <button
+                                    className="editButton"
+                                    onClick={() => handleEditComment(comment.id)}
+                                  >
+                                    Edit
+                                  </button>
+                                  <button
+                                    className="deleteButton"
+                                    onClick={() => handleCommentDelete(comment.id)}
+                                  >
+                                    Delete
+                                  </button>
+                                  {editMode ? (
+                                    <button className="saveButton" onClick={handleSaveComment}>
+                                        Save
+                                    </button>
+                                    ) : null}
+                                </>
+                              ) : null}</div>  : <p></p>)) : <p></p>}
                            
 
                             {decodedToken ? (<form className='addCommentForm' onSubmit={handleAddComment}>
@@ -112,8 +169,9 @@ export default function Details({ producTitle, comments, decodedToken, products 
                             </form>
                             ) : ''}
                         
-
-                    </div>
+                    
+                    </div> 
+                    
 
 
                     : <p></p>}</div>)) : <p></p>}

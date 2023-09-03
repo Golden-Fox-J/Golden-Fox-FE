@@ -87,4 +87,4 @@ const ProfilePage = ({decodedToken,useResource}) => {
 
 
 
-export default UserProfile;
+export default ProfilePage;
