@@ -7,9 +7,18 @@ import Link from 'next/link';
 
 export default function Details({ producTitle, comments, decodedToken, products }) {
 
-    const { response, createResource, deleteResource } = useResource("comment/")
+    // const { response, createResource, deleteResource } = useResource("comment/")
+    const { response: commentResponseData, createResource: createComment, deleteResource: deleteComment } = useResource("comment/");
+    const { response: productResponseData, createResource: createProduct, deleteResource: deleteProduct } = useResource("");
     function handleCommentDelete (id){
-        deleteResource(id)
+        deleteComment(id)
+        
+    }
+
+    
+
+    function handeldeleteProduct (id){
+        deleteProduct(id)
     }
     
     const createResource_fav = useResource("Favourite_product").createResource
@@ -30,6 +39,7 @@ export default function Details({ producTitle, comments, decodedToken, products 
         body.Product = productId
 
     }
+
     const createResource_comment = useResource("comment").createResource
     function handleAddComment(event) {
 
@@ -41,7 +51,7 @@ export default function Details({ producTitle, comments, decodedToken, products 
     }
 
 
-
+    
 
 
 
@@ -71,7 +81,8 @@ export default function Details({ producTitle, comments, decodedToken, products 
                                 <p className='detailPrice'>CURRENT PRICE: &nbsp;&nbsp;<p className='jo'>{product.price} J</p></p>
                                 <p className='detailContact'><p className='ContactInfo'>Contact Info: &nbsp;</p><p className='number'>{product.contact_info}</p></p>
                                 {decodedToken ? <button key={product.id} onClick={() => handleAddToFav(product.id)} className='button-24' role="button">Add To Fav</button> : <p></p>}
-
+                                <br></br>
+                                {decodedToken ? <button className="button-24" key={product.id} onClick={() => {handeldeleteProduct(product.id); }}>Remove</button>:null}
 
 
 
@@ -91,6 +102,7 @@ export default function Details({ producTitle, comments, decodedToken, products 
                             <div className='commentSection_1_1'><img className='commentImage' src='https://img.freepik.com/premium-vector/fox-logo-design_104950-572.jpg' alt='fox' width='40' height='40'/> 
                             <p className='commentusername'>{comment.owner_name}:</p><p className='commentitself'>{comment.body}</p></div><p className='creationtime'>{comment.time_since_creation[0] ? comment.time_since_creation[8] == 0 ? comment.time_since_creation.slice(17,)+' ago' : 
                             comment.time_since_creation.slice(8,15)+" ago" : comment.time_since_creation.slice(0,5)+"ago"}</p> <div className='deleteButton' onClick={()=>handleCommentDelete(comment.id)}>Delete</div></div>  : <p></p>)) : <p></p>}
+
                            
 
                             {decodedToken ? (<form className='addCommentForm' onSubmit={handleAddComment}>

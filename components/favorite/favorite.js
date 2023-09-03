@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
-// import './favorite.css';
+import useResource from 'hooks/useResource';
+
+
+
+
+
 
 const FavoriteListFetcher = ({ products, decodedToken }) => {
   const [favoriteData, setFavoriteData] = useState([]);
@@ -18,10 +23,15 @@ const FavoriteListFetcher = ({ products, decodedToken }) => {
         console.error('Error fetching data:', error);
       }
     };
-
     fetchData();
-  }, []);
+  }, [favoriteData]);
 
+  const { response, createResource, deleteResource } = useResource(`Favourite_product/`)
+    function handleRemoveFromFavorites (id){
+        deleteResource(id)
+    }
+    
+  
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -48,6 +58,7 @@ const FavoriteListFetcher = ({ products, decodedToken }) => {
                                 <p className='detailDescription'>Description: {i.description}</p>
                                 <p className='detailPrice'>Price: {i.price} J</p>
                                 <p className='detailContact'>Contact Info: {i.contact_info}</p>
+                                <button className="button-24" key={x.id} onClick={() => {handleRemoveFromFavorites(x.id); }}>Remove</button>
                               </div>
                             </div>
                           </div>

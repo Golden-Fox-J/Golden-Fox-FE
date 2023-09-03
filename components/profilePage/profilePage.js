@@ -5,7 +5,7 @@ import { useState,useEffect } from 'react';
 
 
 
-const ProfilePage = ({decodedToken,useResource}) => {
+const UserProfile = ({decodedToken,useResource}) => {
 
     const [token, setToken] = useState()
     useEffect(() => {
@@ -74,7 +74,7 @@ const ProfilePage = ({decodedToken,useResource}) => {
                 <label>Contact info<input type='text' name='contact_info'/></label>
                 <label for="cars">Choose a car:</label>
                 <select name="category" id="category" >
-                    <option value="8">cars</option>
+                    <option value="1">cars</option>
                     <option value="9">houses</option>
                     <option value="7">electronics</option>
                 </select>
