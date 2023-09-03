@@ -6,12 +6,12 @@ import '../styles/Footer.css'
 import '../styles/HeroSection.css'
 import '../styles/FeaturedProducts.css'
 import "../styles/Categories.css"
-import "keen-slider/keen-slider.min.css";
+import "../styles/ProfilePage.css"
 import "../styles/login.css"
+import "keen-slider/keen-slider.min.css";
 import "../components/login/loginForm.css"
-
-import "../components/profilePage/profilePage.css"
 import "../components/details/details.css"
+import "../styles/about.css"
 
 
 

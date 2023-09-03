@@ -1,0 +1,107 @@
+.profile-container {
+    background: linear-gradient(45deg, #02000E 50%, #E5C27C 100%);
+    color: #E5C27C;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .profile-info {
+    text-align: center;
+  }
+  
+  .profile-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .profile-info p {
+    font-size: 16px;
+  }
+  
+  .login-message {
+    text-align: center;
+  }
+  
+  .login-message p {
+    font-size: 16px;
+  }
+  
+  .profile-section {
+    margin-top: 20px;
+  }
+  
+  .profile-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .profile-section p {
+    font-size: 16px;
+  }
+  
+  .profile-section form {
+    background-color: #02000E;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+  }
+  
+  .profile-section label {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  .profile-section input[type="text"],
+  .profile-section input[type="number"],
+  .profile-section select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #E5C27C;
+    border-radius: 5px;
+    background-color: #02000E;
+    color: #E5C27C;
+    font-size: 16px;
+  }
+  
+  .profile-section input[type="file"] {
+    width: 100%;
+    margin-top: 5px;
+    font-size: 16px;
+    color: #E5C27C;
+    background-color: #02000E;
+    border: 1px solid #E5C27C;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .profile-section button {
+    background-color: #E5C27C;
+    color: #02000E;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .profile-section button:hover {
+    background-color: #F1D4A4;
+  }
+  
+  /* Animation for comments */
+  .profile-section div {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .profile-section div.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  

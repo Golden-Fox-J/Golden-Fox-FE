@@ -9,44 +9,36 @@ import FeaturedProducts from "components/homepage/FeaturedProducts";
 import Categories from "components/homepage/Categories";
 import { useAuth } from "context/auth";
 
-
-
-
 export default function Home() {
-
-  const { login,user } = useAuth()
-  
+  const { login, user } = useAuth()
   const [decodedToken, setDecodedToken] = useState()
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.localStorage) {
-
-      setDecodedToken(JSON.parse(localStorage.getItem('decodedToken')))
-      
+      const storedDecodedToken = localStorage.getItem('decodedToken');
+      if (storedDecodedToken) {
+        setDecodedToken(JSON.parse(storedDecodedToken));
+      }
     }
   }, []);
 
-
   const [token, setToken] = useState()
-    useEffect(() => {
-        if (typeof window !== 'undefined' && window.localStorage) {
-            
-            let token_pef = localStorage.getItem('token')
-            // console.log(11111,token_pef)
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.localStorage) {
 
-            setToken(JSON.parse(localStorage.getItem('token')))
+      let token_pef = localStorage.getItem('token')
+      // console.log(11111,token_pef)
 
-            // console.log(token)
-        }
-    }, []);
+      setToken(JSON.parse(localStorage.getItem('token')))
 
-
-
+      // console.log(token)
+    }
+  }, []);
 
   return (
     <div>
       {console.log(decodedToken)}
-      <Navbar decodedToken={decodedToken}/>
+      <Navbar decodedToken={decodedToken} />
       <HeroSection />
       <Categories />
       {/* <FeaturedProducts /> */}
