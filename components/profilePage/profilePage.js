@@ -2,6 +2,9 @@ import axios from 'axios';
 import { useState,useEffect } from 'react';
 
 
+
+
+
 const ProfilePage = ({decodedToken,useResource}) => {
 
     const [token, setToken] = useState()
@@ -82,4 +85,6 @@ const ProfilePage = ({decodedToken,useResource}) => {
     )
 };
 
-export default ProfilePage;
+
+
+export default UserProfile;

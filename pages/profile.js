@@ -1,3 +1,4 @@
+
 import Navbar from "components/layout/Navbar"
 import ProfilePage from "components/profilePage/profilePage";
 import { useState } from "react"
@@ -27,3 +28,4 @@ export default function Profile (){
         </>
     )
 }
+
