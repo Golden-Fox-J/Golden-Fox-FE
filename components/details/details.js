@@ -4,6 +4,10 @@ import { comment } from 'postcss';
 import useResource from 'hooks/useResource';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
+library.add(faTrashAlt, faEdit);
 
 export default function Details({ productId, comments, decodedToken, products }) {
 
@@ -124,23 +128,21 @@ export default function Details({ productId, comments, decodedToken, products })
                             {comments ? (comments.map((comment) => comment.Product == product.id ? <div className='commentSection_1'> 
                             <div className='commentSection_1_1'><img className='commentImage' src='https://img.freepik.com/premium-vector/fox-logo-design_104950-572.jpg' alt='fox' width='40' height='40'/> 
                             <p className='commentusername'>{comment.owner_name}:</p>
-                            {editMode && decodedToken.user_id == comment.owner ? (<input type="text" value={editedComment} onChange={(e) => setEditedComment(e.target.value)}/>
+                            {editMode && decodedToken.user_id == comment.owner ? (<input className='commentInput' type="text" value={editedComment} onChange={(e) => setEditedComment(e.target.value)}/>
                             ) : (<p className="commentitself">{comment.body}</p>)}
                             </div><p className='creationtime'>{comment.time_since_creation[0] ? comment.time_since_creation[8] == 0 ? comment.time_since_creation.slice(17,)+' ago' : 
                             comment.time_since_creation.slice(8,15)+" ago" : comment.time_since_creation.slice(0,5)+"ago"}</p> {decodedToken && decodedToken.user_id === comment.owner ? (
                                 <>
-                                  <button
-                                    className="editButton"
+                                  <FontAwesomeIcon
+                                    icon="edit"
+                                    className="editIcon"
                                     onClick={() => handleEditComment(comment.id)}
-                                  >
-                                    Edit
-                                  </button>
-                                  <button
-                                    className="deleteButton"
+                                    />
+                                  <FontAwesomeIcon
+                                    icon="trash-alt"
+                                    className="deleteIcon"
                                     onClick={() => handleCommentDelete(comment.id)}
-                                  >
-                                    Delete
-                                  </button>
+                                    />
                                   {editMode ? (
                                     <button className="saveButton" onClick={handleSaveComment}>
                                         Save
