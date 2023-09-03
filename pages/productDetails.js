@@ -24,11 +24,11 @@ export default function ProductDeatils(){
     }, []);
 
 
-    const [producTitle, setproducTitle] = useState()
+    const [productId, setproductId] = useState()
     useEffect(() => {
         if (typeof window !== 'undefined' && window.localStorage) {
 
-            setproducTitle(localStorage.getItem('producTitle'))
+            setproductId(localStorage.getItem('productId'))
         }
     }, []);
 
@@ -63,10 +63,8 @@ export default function ProductDeatils(){
     return(
         <>
         <Navbar decodedToken={decodedToken} />
-        <Details producTitle={producTitle}  comments={comments} decodedToken={decodedToken} products={products} />
+        <Details productId={productId}  comments={comments} decodedToken={decodedToken} products={products} />
         <Footer />
-
-
         </>
     )
 }

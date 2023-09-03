@@ -99,6 +99,27 @@ export default function useResource(restOfURL = '') {
 
     }
 
+    async function updateResource(newLocation,id){
+
+        const updateUrl =url+id+"/"
+        if (!token) {
+            return
+        }try{
+
+            const options =config()
+            options.method ="put"
+            options.body  = JSON.stringify(newLocation)
+    
+            await fetch(updateUrl, options)
+            mutate()
+
+        }catch (error) {
+            errorHandler(error)
+        }
+
+
+    }
+
 
 
 
@@ -116,7 +137,8 @@ export default function useResource(restOfURL = '') {
         response : data,
         createResource,
         deleteResource,
-        fetchResource
+        fetchResource,
+        updateResource
     }
 
 

@@ -45,11 +45,13 @@ export default function Home() {
 
   return (
     <div>
-      {console.log(decodedToken)}
+      
       <Navbar decodedToken={decodedToken}/>
       <HeroSection />
+      <div className="homeS">
       <Categories />
       <FeaturedProducts />
+      </div>
       <Footer />
     </div>
   );
