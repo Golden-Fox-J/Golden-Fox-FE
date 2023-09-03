@@ -35,7 +35,7 @@ export default function Details({ producTitle, comments, decodedToken, products 
 
         event.preventDefault()
         body.owner_name = decodedToken.username
-        body.email = event.target.email.value
+        body.email = decodedToken.email
         body.body = event.target.comment.value
         createResource_comment(body)
     }
@@ -103,13 +103,7 @@ export default function Details({ producTitle, comments, decodedToken, products 
                                                 <span className="field__label">Text</span>
                                             </span>
                                     </div>
-                                    <div className="field field_v2">
-                                        <label for="last-name" className="ha-screen-reader">Email</label>
-                                        <input name='email' id="last-name" className="field__input" placeholder=""/>
-                                            <span className="field__label-wrap" aria-hidden="true">
-                                                <span className="field__label">Email</span>
-                                            </span>
-                                    </div>
+                                    
                                     
                                 </div>
                                 

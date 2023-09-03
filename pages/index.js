@@ -49,7 +49,7 @@ export default function Home() {
       <Navbar decodedToken={decodedToken}/>
       <HeroSection />
       <Categories />
-      {/* <FeaturedProducts /> */}
+      <FeaturedProducts />
       <Footer />
     </div>
   );
