@@ -1,12 +1,15 @@
 import React from 'react';
-
+import Image from 'next/image';
+import email from './images/email.png'
+import github from './images/github.png'
+import mothana from './images/mothan.jpeg'
 function About() {
     return (
         <>
             <div className='body11'>
                 <div className='aboutbody'>
 
-                    <h1 className="aboutheader">MEET OUR TEAM</h1>
+                    <h1 className="aboutheader1">MEET OUR TEAM</h1>
                     <div className="aboutline1"></div>
                     <div className="card-row">
 
@@ -22,11 +25,11 @@ function About() {
                             <div className="title">Software Developer</div>
                             <div className="links">
                         <a href="mailto: moath.shakhatreh@gmail.com" target="_blank">
-                            <img className="link4" src="https://www.freepnglogos.com/uploads/email-png/file-email-icon-svg-wikimedia-commons-20.png" alt=""></img>
+                        <img className="link4" src={email.src} alt=""></img>
                         </a>
 
                         <a href="https://github.com/Moath-shakhatreh" target="_blank">
-                            <img className="link4" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt=""></img>
+                            <img className="link4" src={github.src} alt=""></img>
                         </a>
                     </div>
                         </div>
@@ -43,11 +46,11 @@ function About() {
                             <div className="title">Software Developer</div>
                             <div className="links">
                         <a href="mailto: mahdimalkawi98@hotmail.com" target="_blank">
-                            <img className="link4" src="https://www.freepnglogos.com/uploads/email-png/file-email-icon-svg-wikimedia-commons-20.png" alt=""></img>
+                        <img className="link4" src={email.src} alt=""></img>
                         </a>
 
                         <a href="https://github.com/mahdimalkawi1" target="_blank">
-                            <img className="link4" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt=""></img>
+                        <img className="link4" src={github.src} alt=""></img>
                         </a>
                     </div>
                         </div>
@@ -64,11 +67,11 @@ function About() {
                             <div className="title">Software Developer</div>
                             <div className="links">
                         <a href="mailto: mutazabutaha13@outlook.com" target="_blank">
-                            <img className="link4" src="https://www.freepnglogos.com/uploads/email-png/file-email-icon-svg-wikimedia-commons-20.png" alt=""></img>
+                        <img className="link4" src={email.src} alt=""></img>
                         </a>
 
                         <a href="https://github.com/MutazAbutaha" target="_blank">
-                            <img className="link4" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt=""></img>
+                        <img className="link4" src={github.src} alt=""></img>
                         </a>
                     </div>
                             
@@ -80,7 +83,7 @@ function About() {
                             <div className="container">
                                 <div className="container-inner">
                                     <img className="circle" src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjEwMTYtYy0wOF8xLWtzaDZtemEzLmpwZw.jpg" alt="Profile Image 2" />
-                                    <img className="img img3" src="https://avatars.githubusercontent.com/u/60059328?v=4" alt="Image 2" />
+                                    <img className="img img3" src={mothana.src} alt="Image 2" />
                                 </div>
                             </div>
                             <div className="divider"></div>
@@ -88,16 +91,17 @@ function About() {
                             <div className="title">Software Developer</div>
                             <div className="links">
                         <a href="mailto: mothana.almasri.99@gmail.com" target="_blank">
-                            <img className="link4" src="https://www.freepnglogos.com/uploads/email-png/file-email-icon-svg-wikimedia-commons-20.png" alt=""></img>
+                        <img className="link4" src={email.src} alt=""></img>
                         </a>
 
                         <a href="https://github.com/almothana-almasri" target="_blank">
-                            <img className="link4" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt=""></img>
+                        <img className="link4" src={github.src} alt=""></img>
                         </a>
                     </div>
                         </div>
 
                         <div className="person">
+                            
                             <div className="container">
                                 <div className="container-inner">
                                     <img className="circle" src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjEwMTYtYy0wOF8xLWtzaDZtemEzLmpwZw.jpg" alt="Profile Image 2" />
@@ -109,11 +113,11 @@ function About() {
                             <div className="title">Software Developer</div>
                             <div className="links">
                         <a href="mailto: Drduaamelhem@gmail.com" target="_blank">
-                            <img className="link4" src="https://www.freepnglogos.com/uploads/email-png/file-email-icon-svg-wikimedia-commons-20.png" alt=""></img>
+                        <img className="link4" src={email.src} alt=""></img>
                         </a>
                         
                         <a href="https://github.com/doaamelhem96" target="_blank">
-                            <img className="link4" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt=""></img>
+                        <img className="link4" src={github.src} alt=""></img>
                         </a>
                     </div>
                         </div>
@@ -137,11 +141,11 @@ function About() {
                             <div className="title">Software Developer</div>
                             <div className="links">
                         <a href="mailto: zekraquraan7@gmail.com" target="_blank">
-                            <img className="link4" src="https://www.freepnglogos.com/uploads/email-png/file-email-icon-svg-wikimedia-commons-20.png" alt=""></img>
+                        <img className="link4" src={email.src} alt=""></img>
                         </a>
 
                         <a href="https://github.com/zekraquraan" target="_blank">
-                            <img className="link4" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt=""></img>
+                        <img className="link4" src={github.src} alt=""></img>
                         </a>
                     </div>
                         </div>
@@ -151,24 +155,26 @@ function About() {
                 <div className="p1">
                     <div>
 
-                        <h1 className="aboutheader">Golden Fox</h1>
+                        <h1 className="aboutheader3">Golden Fox</h1>
                         <div className="aboutline"></div>
                     </div>
                     {/* <img className="logo" src="https://scalebranding.com/wp-content/uploads/2022/02/golden-fox.jpg" alt=""></img> */}
-                    <p className='bbb'>An online store <br />
-                        an online store where you can explore a vast collection of products and effortlessly make purchases.
+                    <div className='aboutbox'>
+                    <p className='bbb'>An online store where you can explore a vast collection of products and effortlessly make purchases.
                         Additionally, you have the option to create a curated list of your favorite items for easy reference and future shopping.</p>
-
+                    </div>
                 </div>
                 <div className="p2">
                     <div>
-                        <h1 className="aboutheader">Our vision</h1>
+                        <h1 className="aboutheader2">Our vision</h1>
                         <div className="aboutline"></div>
                     </div>
+                    <div className='visionbox'>
                     <p className='bbb'>Our vision is to be the ultimate online shopping destination,
                         offering a wide range of high-quality products while enabling customers to easily create and manage their personalized lists of favorites,
                         making shopping both convenient and enjoyable.</p>
                 </div>
+            </div>
             </div>
         </>
     );
