@@ -1,4 +1,4 @@
-// import '@/styles/globals.css'
+// import '../styles/globals.css'
 import { AuthProvider } from 'context/auth'
 import '../styles/reset.css'
 import '../styles/Navbar.css'
@@ -12,7 +12,8 @@ import "../components/login/loginForm.css"
 import "../components/categoryProducts/categoryProduct.css"
 // import "../components/profilePage/profilePage.css"
 import "../components/details/details.css"
-
+import "../components/favorite/favorite.css"
+import "../components/about/about.css"
 
 
 export default function App({ Component, pageProps }) {

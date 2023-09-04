@@ -74,9 +74,9 @@ const ProfilePage = ({decodedToken,useResource}) => {
                 <label>Contact info<input type='text' name='contact_info'/></label>
                 <label for="cars">Choose a car:</label>
                 <select name="category" id="category" >
-                    <option value="8">cars</option>
-                    <option value="9">houses</option>
-                    <option value="7">electronics</option>
+                    <option value="1">cars</option>
+                    <option value="2">houses</option>
+                    <option value="3">phones</option>
                 </select>
                 <button type="submit">create</button>
 

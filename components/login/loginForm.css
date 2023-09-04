@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
 .body_login{
+	
 	margin: 0;
 	padding: 0;
 	display: flex;
@@ -6,7 +9,7 @@
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-	background: linear-gradient(to bottom, #0f0c29, #282828, #24243e);
+	background: linear-gradient(to bottom, #000000, #635a2b, #000000);
 	
 }
 .main_login{
@@ -27,12 +30,13 @@
 	height: 100%;
 }
 .login_label{
-	color: #fff;
+	font-family: 'Raleway', sans-serif;
+	color: #f1f1e8;
 	font-size: 2.3em;
 	justify-content: center;
 	display: flex;
 	margin: 60px;
-  padding-top: 10px;
+  	padding-top: 10px;
 	font-weight: bold;
 	cursor: pointer;
 	transition: .5s ease-in-out;
@@ -40,7 +44,7 @@
 .login_input{
 	width: 60%;
 	height: 20px;
-	background: #e0dede;
+	background: #e0e0de;
 	justify-content: center;
 	display: flex;
 	margin: 20px auto;
@@ -71,7 +75,7 @@
 }
 .login{
 	height: 460px;
-	background: #eeeeee;
+	background: linear-gradient(to top,#E5C27C,#ffffff);
 	border-radius: 60% / 10%;
 	transform: translateY(-180px);
 	transition: .8s ease-in-out;
