@@ -93,8 +93,12 @@ const ProfilePage = ({ decodedToken, useResource }) => {
         localStorage.setItem('productId', id);
     };
 
+
+
+    
+
     if (loading) {
-        return <p>Loading...</p>;
+        return <p className='profile_loading'>Loading...</p>;
     }
 
     return (
