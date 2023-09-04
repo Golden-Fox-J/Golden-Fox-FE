@@ -47,6 +47,8 @@ export default function FavoriteListPage(){
 
     
 
+    
+
   return (
     <div className="favoriteFullPage">
       <Navbar decodedToken={decodedToken} />
