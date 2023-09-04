@@ -7,37 +7,35 @@ import instagramIcon from '../../public/icons/instagram.png';
 function Footer() {
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Replace this with your server-side email sending logic
     const userEmail = e.target.email.value;
     const userMessage = e.target.message.value;
 
-    // Send an email to mothana@gmail.com with the user's email and message
     const emailData = {
       to: 'mothana@gmail.com',
       subject: 'Contact Us Form Submission',
       body: `User Email: ${userEmail}\nUser Message: ${userMessage}`,
-      
+
     };
     e.target.email.value = '';
     e.target.message.value = '';
   };
+
   return (
-<footer className="footer">
-  <div className="footer-content">
-    <div className="footer-links">
-      <h4>Website Links</h4>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/products">Products</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/sell">Sell on Golden Fox</a></li>
-      </ul>
-    </div>
-    <div className="footer-social">
-      <h4>Follow Us</h4>
-      <ul className="social-icons">
+    <footer className="footer">
+      <div className="footer-content">
+        <div className="footer-links">
+          <h4>Website Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/sell">Sell on Golden Fox</a></li>
+          </ul>
+        </div>
+        <div className="footer-social">
+          <h4>Follow Us</h4>
+          <ul className="social-icons">
             <li><a href="#" target="_blank" rel="noopener noreferrer"><Image src={whatsappIcon} alt="WhatsApp" width={24} height={24} /></a></li>
             <li><a href="https://www.facebook.com/profile.php?id=61550785441323" target="_blank" rel="noopener noreferrer"><Image src={facebookIcon} alt="Facebook" width={24} height={24} /></a></li>
             <li><a href="#" target="_blank" rel="noopener noreferrer"><Image src={twitterIcon} alt="Twitter" width={24} height={24} /></a></li>
@@ -53,28 +51,28 @@ function Footer() {
           </form>
         </div>
         <div className="footer-resources">
-        <h4>Website Policies</h4>
-      <ul>
-        <li><a href="/trust-safety">Trust & Safety</a></li>
-        <li><a href="/customer-support">Customer Support</a></li>
-        <li><a href="/terms">Terms of Service</a></li>
-        <li><a href="/privacy-policy">Privacy Policy</a></li>
-        <li><a href="/return-policy">Return Policy</a></li>
-      </ul>
-    </div>
-    <div className="footer-featured-listings">
-      <h4>Featured Listings</h4>
-  <ul>
-  <li><a href="/trust-safety">Item car Honda 1</a></li>
-        <li><a href="/customer-support">Item car Honda 1</a></li>
-        <li><a href="/terms">Item car Honda 1</a></li>
-        <li><a href="/privacy-policy">Item car Honda 1</a></li>
-        <li><a href="/return-policy">Item car Honda 1</a></li>
-  </ul>
-</div>
+          <h4>Website Policies</h4>
+          <ul>
+            <li><a href="/trust-safety">Trust & Safety</a></li>
+            <li><a href="/customer-support">Customer Support</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+            <li><a href="/privacy-policy">Privacy Policy</a></li>
+            <li><a href="/return-policy">Return Policy</a></li>
+          </ul>
+        </div>
+        <div className="footer-featured-listings">
+          <h4>Featured Listings</h4>
+          <ul>
+            <li><a href="/trust-safety">Item car Honda 1</a></li>
+            <li><a href="/customer-support">Item car Honda 1</a></li>
+            <li><a href="/terms">Item car Honda 1</a></li>
+            <li><a href="/privacy-policy">Item car Honda 1</a></li>
+            <li><a href="/return-policy">Item car Honda 1</a></li>
+          </ul>
+        </div>
 
-  </div>
-</footer>
+      </div>
+    </footer>
   );
 }
 
