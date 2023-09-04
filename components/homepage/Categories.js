@@ -26,7 +26,7 @@ function Categories() {
 
   
   return (
-    <section className="categories">
+    <section className="categories" id="categories">
       <h2>Explore Categories</h2>
       <div className="category-list">
         {categories.map(category => (
