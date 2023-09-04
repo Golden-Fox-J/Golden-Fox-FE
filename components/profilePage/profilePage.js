@@ -63,27 +63,37 @@ const ProfilePage = ({decodedToken,useResource}) => {
 
     return (
         <>
+          <div className="profile-container">
+            {decodedToken ? (
+              <div className="profile-info">
+                <h2>Welcome, {decodedToken.username}</h2>
+                <p>Email: {decodedToken.email}</p>
+              </div>
+            ) : (
+              <div className="login-message">
+                <p>Please log in to view your profile.</p>
+              </div>
+            )}
             <form id="imageUploadForm" onSubmit={handleCreate}>
-                
-                <label>Title<input type='text' name='Title'/></label>
-                <label>Description<input type='text' name='description'/></label>
-
-                <input onChange={handleImage} type="file"  name='image' />
-
-                <label>Price<input type='number' name='price'/></label>
-                <label>Contact info<input type='text' name='contact_info'/></label>
-                <label for="cars">Choose a car:</label>
-                <select name="category" id="category" >
-                    <option value="8">cars</option>
-                    <option value="9">houses</option>
-                    <option value="7">electronics</option>
-                </select>
-                <button type="submit">create</button>
-
+              <label>Title<input type="text" name="Title" /></label>
+              <label>Description<input type="text" name="description" /></label>
+    
+              <input onChange={handleImage} type="file" name="image" />
+    
+              <label>Price<input type="number" name="price" /></label>
+              <label>Contact info<input type="text" name="contact_info" /></label>
+              <label htmlFor="category">Choose a car:</label>
+              <select name="category" id="category">
+                <option value="8">cars</option>
+                <option value="9">houses</option>
+                <option value="7">electronics</option>
+              </select>
+              <button type="submit">create</button>
             </form>
+          </div>
         </>
-    )
-};
+      );
+    };
 
 
 

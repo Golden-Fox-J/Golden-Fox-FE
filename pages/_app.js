@@ -12,6 +12,7 @@ import "../components/login/loginForm.css"
 import "../components/categoryProducts/categoryProduct.css"
 // import "../components/profilePage/profilePage.css"
 import "../components/details/details.css"
+import "../styles/profilePage.css"
 
 
 
