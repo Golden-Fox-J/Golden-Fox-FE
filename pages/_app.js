@@ -10,7 +10,7 @@ import "keen-slider/keen-slider.min.css";
 import "../styles/login.css"
 import "../components/login/loginForm.css"
 
-import "../components/profilePage/profilePage.css"
+//import "../components/profilePage/profilePage.css"
 import "../components/details/details.css"
 
 
