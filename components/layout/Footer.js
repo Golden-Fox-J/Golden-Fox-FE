@@ -46,7 +46,7 @@ function Footer() {
           <h4>Contact Us</h4>
           <form onSubmit={handleSubmit}>
             <input type="email" name="email" placeholder="Enter your email" required />
-            <textarea name="message" rows="4" placeholder="Your message" required></textarea>
+            <textarea name="message" rows="1" placeholder="Your message" required></textarea>
             <button type="submit">Submit</button>
           </form>
         </div>
@@ -60,17 +60,6 @@ function Footer() {
             <li><a href="/return-policy">Return Policy</a></li>
           </ul>
         </div>
-        <div className="footer-featured-listings">
-          <h4>Featured Listings</h4>
-          <ul>
-            <li><a href="/trust-safety">Item car Honda 1</a></li>
-            <li><a href="/customer-support">Item car Honda 1</a></li>
-            <li><a href="/terms">Item car Honda 1</a></li>
-            <li><a href="/privacy-policy">Item car Honda 1</a></li>
-            <li><a href="/return-policy">Item car Honda 1</a></li>
-          </ul>
-        </div>
-
       </div>
     </footer>
   );

@@ -4,6 +4,7 @@ import ProfilePage from "components/profilePage/profilePage";
 import { useState } from "react"
 import { useEffect } from "react";
 import useResource from "hooks/useResource";
+import Footer from "components/layout/Footer";
 
 
 
@@ -24,7 +25,7 @@ export default function Profile (){
         <>
             <Navbar decodedToken={decodedToken}/>
             <ProfilePage decodedToken={decodedToken} useResource={useResource}/>
-        
+            <Footer/>
         </>
     )
 }

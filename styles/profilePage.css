@@ -1,92 +1,112 @@
-/* profilepage.css */
-
-/* Container styling */
 .profile-container {
-    background-color: #fff;
-    color: #02000e;
-    padding: 20px;
-    border: 1px solid #e5c27c;
-    border-radius: 10px;
-    margin: 20px auto;
-    max-width: 600px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  color: #02000e;
+  padding: 20px;
+  border: 1px solid #e5c27c;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-info h2 {
+  color: #02000e;
+}
+
+.profile-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-container label {
+  margin-bottom: 10px;
+}
+
+.profile-container input[type="text"],
+.profile-container input[type="number"],
+.profile-container select {
+  padding: 8px;
+  border: 1px solid #e5c27c;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.profile-container input[type="file"] {
+  margin-top: 10px;
+}
+
+.profile-container button[type="submit"] {
+  background-color: #e5c27c;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile-container button[type="submit"]:hover {
+  background-color: #c9a853;
+}
+
+.login-message {
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .profile-container {
+    padding: 10px;
+    border-radius: 0;
+    box-shadow: none;
   }
-  
-  /* Profile info styling */
-  .profile-info {
-    text-align: center;
-    margin-bottom: 20px;
+
+  .profile-container label {
+    font-size: 14px;
   }
-  
-  .profile-info h2 {
-    color: #02000e;
+
+  .profile-container input[type="text"],
+  .profile-container input[type="number"],
+  .profile-container select {
+    font-size: 14px;
+    padding: 6px;
   }
-  
-  /* Form styling */
-  form {
-    display: flex;
-    flex-direction: column;
+
+  .profile-container button[type="submit"] {
+    padding: 8px 12px;
+    font-size: 16px;
   }
-  
-  label {
-    margin-bottom: 10px;
-  }
-  
-  input[type="text"],
-  input[type="number"],
-  select {
-    padding: 8px;
-    border: 1px solid #e5c27c;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
-  
-  input[type="file"] {
-    margin-top: 10px;
-  }
-  
-  button[type="submit"] {
-    background-color: #e5c27c;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #c9a853;
-  }
-  
-  /* Login message styling */
-  .login-message {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  /* Responsive styling */
-  @media screen and (max-width: 600px) {
-    .profile-container {
-      padding: 10px;
-      border-radius: 0;
-      box-shadow: none;
-    }
-  
-    label {
-      font-size: 14px;
-    }
-  
-    input[type="text"],
-    input[type="number"],
-    select {
-      font-size: 14px;
-      padding: 6px;
-    }
-  
-    button[type="submit"] {
-      padding: 8px 12px;
-      font-size: 16px;
-    }
-  }
-  
+}
+
+.user-products {
+  margin-top: 30px;
+}
+
+.user-products h3 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.user-products ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.user-products li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-products li p {
+  margin: 10px 0;
+}
