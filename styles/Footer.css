@@ -1,7 +1,9 @@
 .footer {
     background-color: #02000E;
     color: #fff;
-    padding: 3rem 0;
+    /* padding: 3rem 0; */
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
     text-align: center;
   }
   
@@ -91,4 +93,41 @@
     font-size: 1.5rem; /* Adjust the font size as needed */
     margin-bottom: 1rem;
     color: #f5dba7;
+}
+/* Add this CSS code to your existing footer.css file */
+
+/* Add this CSS code to your existing footer.css file */
+
+/* Contact Us form styling */
+.footer-contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-contact input[type="email"],
+.footer-contact textarea {
+  padding: 8px; /* Adjust padding to make them smaller */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px; /* Adjust font size to make it smaller */
+}
+
+.footer-contact textarea {
+  resize: vertical; /* Allow textarea to be resized vertically */
+}
+
+.footer-contact button[type="submit"] {
+  background-color: #E5C27C;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.footer-contact button[type="submit"]:hover {
+  background-color: #f39c12;
 }
