@@ -18,6 +18,11 @@ export default function Details({ productId, comments, decodedToken, products })
         deleteResource(id)
     }
 
+    const productDelete = useResource().deleteResource
+    function handleProductDelete(id){
+        productDelete(id)
+    }
+
 
 
     const updateResource_comment = useResource("comment/").updateResource
@@ -97,7 +102,7 @@ export default function Details({ productId, comments, decodedToken, products })
                         <div className='detailCard'>
 
                             <div className='detailImageC'>
-                                <Image className='detailImage' src={product.image} alt={product.Title} width='550' height='450' />
+                                <Image className='detailImage' src={product.image} alt={product.Title} width='500' height='400' />
                             </div>
 
                             <div class="vl"></div>
@@ -108,7 +113,8 @@ export default function Details({ productId, comments, decodedToken, products })
                                 <p className='detailDescription'><p className='Details'>Details:</p>{product.description}</p>
                                 <p className='detailPrice'>CURRENT PRICE: &nbsp;&nbsp;<p className='jo'>{product.price} J</p></p>
                                 <p className='detailContact'><p className='ContactInfo'>Contact Info: &nbsp;</p><p className='number'>{product.contact_info}</p></p>
-                                {decodedToken ? <button key={product.id} onClick={() => handleAddToFav(product.id)} className='button-24' role="button">Add To Fav</button> : <p></p>}
+                                {decodedToken ? <div className='DButtons'><button key={product.id} onClick={() => handleAddToFav(product.id)} className='button-33' role="button">Add To Fav</button>
+                                {decodedToken.user_id == product.owner ? <Link href="/profile"><button key={product.id} onClick={() => handleProductDelete(product.id)} className='button-34' role="button">Remove</button></Link>:''}</div> : <p></p>}
 
 
 
@@ -121,13 +127,13 @@ export default function Details({ productId, comments, decodedToken, products })
 
                         </div>
 
-                        <p className='commentSection'>Comments:</p>
+                        <p className='commentSection'>Comments</p>
                         
                             
                             
                             {comments ? (comments.map((comment) => comment.Product == product.id ? <div className='commentSection_1'> 
                             <div className='commentSection_1_1'><img className='commentImage' src='https://img.freepik.com/premium-vector/fox-logo-design_104950-572.jpg' alt='fox' width='40' height='40'/> 
-                            <p className='commentusername'>{comment.owner_name}:</p>
+                            <p className='commentusername'>{comment.owner_name}</p>
                             {editMode && decodedToken.user_id == comment.owner ? (<input className='commentInput' type="text" value={editedComment} onChange={(e) => setEditedComment(e.target.value)}/>
                             ) : (<p className="commentitself">{comment.body}</p>)}
                             </div><p className='creationtime'>{comment.time_since_creation[0] ? comment.time_since_creation[8] == 0 ? comment.time_since_creation.slice(17,)+' ago' : 

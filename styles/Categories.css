@@ -1,3 +1,8 @@
+.catLink{
+  text-decoration: none;
+  color: black;
+}
+
 .categories {
     padding: 3rem 0;
     text-align: center;

@@ -63,7 +63,9 @@ export default function ProductDeatils(){
     return(
         <>
         <Navbar decodedToken={decodedToken} />
+        <div className="detFullScreen">
         <Details productId={productId}  comments={comments} decodedToken={decodedToken} products={products} />
+        </div>
         <Footer />
         </>
     )

@@ -50,7 +50,7 @@ export default function Home() {
       <HeroSection />
       <div className="homeS">
       <Categories />
-      <FeaturedProducts />
+      <FeaturedProducts decodedToken={decodedToken}/>
       </div>
       <Footer />
     </div>

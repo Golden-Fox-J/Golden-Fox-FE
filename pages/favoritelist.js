@@ -19,7 +19,7 @@ export default function FavoriteListPage(){
             }
         }
         getProducts();
-    }, []);
+    }, [products]);
 
     
     // products ? (products.map((product) => {

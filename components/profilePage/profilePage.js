@@ -99,6 +99,7 @@ const ProfilePage = ({ decodedToken, useResource }) => {
 
     return (
         <>
+
             <div className="profile-container">
                 {decodedToken ? (
                     <div className="profile-info">
@@ -136,22 +137,25 @@ const ProfilePage = ({ decodedToken, useResource }) => {
                 </div>
 
                 <form id="imageUploadForm" onSubmit={handleCreate}>
-                    <label>Title<input type="text" name="Title" /></label>
-                    <label>Description<input type="text" name="description" /></label>
+                
+                <label>Title<input type='text' name='Title'/></label>
+                <label>Description<input type='text' name='description'/></label>
 
-                    <input onChange={handleImage} type="file" name="image" />
+                <input onChange={handleImage} type="file"  name='image' />
 
-                    <label>Price<input type="number" name="price" /></label>
-                    <label>Contact info<input type="text" name="contact_info" /></label>
-                    <label htmlFor="category">Choose a car:</label>
-                    <select name="category" id="category">
-                        <option value="8">cars</option>
-                        <option value="9">houses</option>
-                        <option value="7">electronics</option>
-                    </select>
-                    <button type="submit">create</button>
-                </form>
+                <label>Price<input type='number' name='price'/></label>
+                <label>Contact info<input type='text' name='contact_info'/></label>
+                <label for="cars">Choose a car:</label>
+                <select name="category" id="category" >
+                    <option value="1">cars</option>
+                    <option value="2">houses</option>
+                    <option value="3">phones</option>
+                </select>
+                <button type="submit">create</button>
+
+            </form>
             </div>
+
         </>
     );
 };
