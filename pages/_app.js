@@ -12,8 +12,13 @@ import "../components/login/loginForm.css"
 import "../components/categoryProducts/categoryProduct.css"
 // import "../components/profilePage/profilePage.css"
 import "../components/details/details.css"
+
 import "../components/favorite/favorite.css"
 import "../components/about/about.css"
+
+import "../styles/profilePage.css"
+
+
 
 
 export default function App({ Component, pageProps }) {
