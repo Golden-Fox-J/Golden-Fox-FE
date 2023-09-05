@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { MagicSpinner } from "react-spinners-kit";
 
 const ProfilePage = ({ decodedToken, useResource }) => {
     const [userProducts, setUserProducts] = useState([]);
@@ -98,8 +99,20 @@ const ProfilePage = ({ decodedToken, useResource }) => {
     
 
     if (loading) {
-        return <p className='profile_loading'>Loading...</p>;
-    }
+        const styles = {
+            height: '100vh',
+            background: 'linear-gradient(to bottom, #E5C27C, #02000E)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+        };
+    
+        return (
+            <div style={styles}>
+                <MagicSpinner size={130} color="#00ff89" loading={loading} />
+            </div>
+        );
+    }    
 
     return (
         <>
