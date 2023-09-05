@@ -2,7 +2,6 @@
   height: 100vh;
 }
 
-
 .profile-container {
   background-color: #fff;
   color: #02000e;
@@ -88,23 +87,14 @@
   }
 }
 
-.user-products {
-  margin-top: 30px;
-}
-
-.user-products h3 {
-  color: #333;
-  font-size: 24px;
-  margin-bottom: 15px;
-}
-
 .user-products ul {
   list-style-type: none;
   padding: 0;
 }
 
-.user-products li {
-  background-color: #fff;
+.product-card {
+  display: flex;
+  align-items: center;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 20px;
@@ -112,6 +102,50 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.user-products li p {
+.product-image img {
+  max-width: 150px;
+  max-height: 150px;
+  margin-right: 20px;
+}
+
+.product-details {
+  flex-grow: 1;
+}
+
+.product-details p {
   margin: 10px 0;
 }
+
+.user-products li .delete-button {
+  background-color: #FF9999;
+  color: #02000E;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
+.user-products li .delete-button:hover {
+  background-color: #FF6666;
+}
+
+.user-products li .product-details .productde {
+  background-color: #E5C27C;
+  color: #02000E;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.user-products li .product-details .productde:hover {
+  background-color: #C9A853;
+  text-decoration: underline;
+}
+
