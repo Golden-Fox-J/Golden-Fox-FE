@@ -1,106 +1,46 @@
-/* styles.css */
-
-/* Full-page container */
-.favoriteFullPage {
-  width: 100%;
+.favourite_product {
+  min-height: 100vh;
+  background:  #f6f1d4 ;
 }
 
-/* Container for the entire favorite list */
-.favoriteListDiv {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
-/* Product card container */
-.outDetail {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* Product card */
-.detailCard {
-  border: 2px solid #EAEAEA;
-  margin: 10px;
-  padding: 15px;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  background-color: #FFFFFF;
-  border-radius: 10px;
-}
-
-/* Image container */
-.detailImageC {
-  margin-bottom: 15px;
-  max-width: 200px;
-  max-height: 200px;
-  overflow: hidden;
-}
-
-/* Product image */
-.detailImage {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-/* Text container */
-.detailTexts {
+.ftext1 {
+  padding-top: 50px;
+  /* padding-left: 5%; */
   text-align: center;
+  font-size: 150%;
 }
 
-/* Product title */
-.detailTitle {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #333333;
-}
 
-/* Product description */
-.detailDescription {
-  font-size: 16px;
-  line-height: 1.4;
-  margin-bottom: 10px;
-  color: #ddca8b;
-}
-
-/* Product price */
-.detailPrice {
-  font-size: 18px;
-  font-weight: bold;
-  color: #13a34a;
-  margin-bottom: 10px;
-}
-
-/* Contact info */
-.detailContact {
-  font-size: 14px;
-  color: #999999;
-}
-
-/* Loading and error messages */
-.loading-message,
-.error-message {
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 20px;
-}
-
-/* Error message color */
-.error-message {
-  color: #E44D26;
-}
-
-/* Centering loading and error messages */
-.detailBody {
+.p_r_f{
   display: flex;
   flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
+}
+
+.remove_buttonf {
+  /* position:absolute; */
+  
+  background-color: #ff3d33;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 90%;
+  margin-bottom: -10px;
+  /* margin-top: 22px; */
+
+  /* Style on hover */
+  &:hover {
+    background-color: #e64129;
+  
+  }
+}
+
+
+
+/* Style for the Font Awesome icon */
+.remove-buttonfc svg {
+  width: 13px; /* Adjust the icon width as needed */
+  height: 13px; /* Adjust the icon height as needed */
 }
