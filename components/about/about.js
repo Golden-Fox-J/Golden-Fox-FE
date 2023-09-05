@@ -5,7 +5,7 @@ import github from './images/github.png'
 import mothana from './images/mothan.jpeg'
 function About() {
     return (
-        <>
+        <div className='whole-about'>
             <div className='body11'>
                 <div className='aboutbody'>
 
@@ -176,7 +176,7 @@ function About() {
                 </div>
             </div>
             </div>
-        </>
+        </div>
     );
 }
 
