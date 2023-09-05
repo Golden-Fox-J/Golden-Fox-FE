@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { MagicSpinner } from "react-spinners-kit";
+import Man from '../../public/icons/man.png';
 
 const ProfilePage = ({ decodedToken, useResource }) => {
     const [userProducts, setUserProducts] = useState([]);
@@ -11,6 +12,20 @@ const ProfilePage = ({ decodedToken, useResource }) => {
     const [alertMessage, setAlertMessage] = useState("");
     const [alertType, setAlertType] = useState("");
     const productDelete = useResource().deleteResource;
+
+    const categories = [
+        { id: 2, name: 'Houses', icon: 'c1.png' },
+        { id: 14, name: 'Garden Tools', icon: 'c2.png' },
+        { id: 15, name: 'kitchenware', icon: 'c3.png' },
+        { id: 10, name: 'Computers', icon: 'c4.png' },
+        { id: 3, name: 'Smart Phones', icon: 'c5.png' },
+        { id: 1, name: 'cars', icon: 'c6.png' },
+        { id: 12, name: 'Books', icon: 'c7.png' },
+        { id: 13, name: 'Furniture', icon: 'c8.png' },
+        { id: 16, name: 'light fixtures', icon: 'c9.png' },
+        { id: 17, name: 'Motorcyles', icon: 'c10.png' },
+        { id: 7, name: 'electronics', icon: 'c11.png' },
+    ];
 
     useEffect(() => {
         if (typeof window !== 'undefined' && window.localStorage) {
@@ -123,17 +138,17 @@ const ProfilePage = ({ decodedToken, useResource }) => {
     }
 
     return (
-        <>
-{alertMessage && (
-  <div className={`alert ${alertType === 'success' ? 'alert-success' : ''}`}>
-    {alertMessage}
-  </div>
-)}
+        <div className='whole-profile'>
+            {alertMessage && (
+                <div className={`alert ${alertType === 'success' ? 'alert-success' : ''}`}>
+                    {alertMessage}
+                </div>
+            )}
 
-
-            <div className="profile-container">
+            <div className='welcome-message'>
                 {decodedToken ? (
                     <div className="profile-info">
+                        <img src={Man.src} className='profile-image'></img>
                         <h2>Welcome, {decodedToken.username}</h2>
                         <p>Email: {decodedToken.email}</p>
                     </div>
@@ -142,7 +157,9 @@ const ProfilePage = ({ decodedToken, useResource }) => {
                         <p>Please log in to view your profile.</p>
                     </div>
                 )}
+            </div>
 
+            <div className="profile-container">
                 <div className="user-products">
                     <h3>Your Products</h3>
                     {userProducts.length === 0 ? (
@@ -174,27 +191,32 @@ const ProfilePage = ({ decodedToken, useResource }) => {
                     )}
                 </div>
 
-                <form id="imageUploadForm" onSubmit={handleCreate}>
-
+                <form id="imageUploadForm" onSubmit={handleCreate} className="form-container">
+                    <h2>Add a new item</h2>
                     <label>Title<input type='text' name='Title' /></label>
                     <label>Description<input type='text' name='description' /></label>
 
-                    <input onChange={handleImage} type="file" name='image' />
-
                     <label>Price<input type='number' name='price' /></label>
                     <label>Contact info<input type='text' name='contact_info' /></label>
-                    <label for="cars">Choose a car:</label>
-                    <select name="category" id="category" >
-                        <option value="1">cars</option>
-                        <option value="2">houses</option>
-                        <option value="3">phones</option>
+                    <label for="cars">Choose a category:</label>
+                    <select name="category" id="category">
+                        {categories.map((category) => (
+                            <option key={category.id} value={category.id}>
+                                {category.name}
+                            </option>
+                        ))}
                     </select>
-                    <button type="submit">create</button>
+                    <label className="file-input-label">
+                        Choose an Image
+                        <input onChange={handleImage} type="file" name="image" className="file-input" />
+                    </label>
+
+                    <button type="submit">Create Item</button>
 
                 </form>
             </div>
 
-        </>
+        </div>
     );
 };
 
