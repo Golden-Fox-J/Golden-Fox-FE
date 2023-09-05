@@ -9,7 +9,7 @@ const ProfilePage = ({ decodedToken, useResource }) => {
     const [token, setToken] = useState();
     const [proImage, setproImage] = useState(null);
     const [alertMessage, setAlertMessage] = useState("");
-    const [alertType, setAlertType] = useState(""); // Add alertType state
+    const [alertType, setAlertType] = useState("");
     const productDelete = useResource().deleteResource;
 
     useEffect(() => {
@@ -23,23 +23,23 @@ const ProfilePage = ({ decodedToken, useResource }) => {
         setproImage(e.target.files[0]);
     }
 
-    const showAlert = (message, type) => { // Modify showAlert to accept a type argument
+    const showAlert = (message, type) => {
         setAlertMessage(message);
-        setAlertType(type); // Set the alert type
+        setAlertType(type);
         setTimeout(() => {
             setAlertMessage("");
-            setAlertType(""); // Clear the alert type
+            setAlertType("");
         }, 3000);
     };
 
     const addProductToUserProducts = (product) => {
         setUserProducts([...userProducts, product]);
-        showAlert("Product added successfully!", "success"); // Pass "success" as the type
+        showAlert("Product added successfully!", "success");
     };
 
     const removeProductFromUserProducts = (productId) => {
         setUserProducts(userProducts.filter((product) => product.id !== productId));
-        showAlert("Product deleted successfully!"); // Pass "success" as the type
+        showAlert("Product deleted successfully!");
     };
 
     const handleProductDelete = async (id) => {
@@ -48,7 +48,7 @@ const ProfilePage = ({ decodedToken, useResource }) => {
             removeProductFromUserProducts(id);
         } catch (error) {
             console.error('Error deleting product:', error);
-            showAlert("Error deleting product.", "error"); // Display an error message
+            showAlert("Error deleting product.", "error");
         }
     };
 
