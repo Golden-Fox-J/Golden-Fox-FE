@@ -66,7 +66,7 @@ function FeaturedProducts({ decodedToken }) {
       <div className="product-list">
 
 
-        {products ? products.slice(0, 12).map(product => (
+        {products ? products.slice(0, 30).map(product => (
 
           <div key={product.id} className="product" onClick={() => handleProductId(product.id)}>
             <Link className='productde' href="/productDetails">

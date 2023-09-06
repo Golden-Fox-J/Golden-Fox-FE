@@ -2,17 +2,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const categories = [
-  { id: 2, name: 'Houses', icon: 'c1.png' },
-  { id: 14, name: 'Garden Tools', icon: 'c2.png' },
-  { id: 15, name: 'kitchenware', icon: 'c3.png' },
-  { id: 10, name: 'Computers', icon: 'c4.png' },
+  { id: 1, name: 'Houses', icon: 'c1.png' },
+  { id: 2, name: 'cars', icon: 'c6.png' },
   { id: 3, name: 'Smart Phones', icon: 'c5.png' },
-  { id: 1, name: 'cars', icon: 'c6.png' },
-  { id: 12, name: 'Books', icon: 'c7.png' },
-  { id: 13, name: 'Furniture', icon: 'c8.png' },
-  { id: 16, name: 'light fixtures', icon: 'c9.png' },
-  { id: 17, name: 'Motorcyles', icon: 'c10.png' },
-  { id: 7, name: 'electronics', icon: 'c11.png' },
+  { id: 4, name: 'Books', icon: 'c7.png' },
+  { id: 5, name: 'Furniture', icon: 'c8.png' },
+  { id: 6, name: 'Garden Tools', icon: 'c2.png' },
+  { id: 7, name: 'kitchenware', icon: 'c3.png' },
+  { id: 8, name: 'Computers', icon: 'c4.png' },
+  { id: 9, name: 'light fixtures', icon: 'c9.png' },
+  { id: 10, name: 'Motorcyles', icon: 'c10.png' },
+  { id: 11, name: 'electronics', icon: 'c11.png' },
 ];
 
 function Categories() {
