@@ -18,14 +18,33 @@ function LoginForm({ loginHandler }) {
   //   email : ""
   // })
 
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertType, setAlertType] = useState("");
+
+
+  const showAlert = (message, type) => {
+    setAlertMessage(message);
+    setAlertType(type);
+    setTimeout(() => {
+      setAlertMessage("");
+      setAlertType("");
+    }, 3000);
+  };
+
+  const addProductToUserProducts = (product) => {
+    setUserProducts([...userProducts, product]);
+
+  };
+
   const handleRegister = async (event) => {
     event.preventDefault()
-    
+
     const body = {
-      "username":event.target.username.value,
-      "password":event.target.password.value,
-      "email":event.target.email.value}
-      
+      "username": event.target.username.value,
+      "password": event.target.password.value,
+      "email": event.target.email.value
+    }
+
     const response = await fetch(process.env.NEXT_PUBLIC_URL + "account/signup/", {
       method: 'POST',
       headers: {
@@ -35,17 +54,22 @@ function LoginForm({ loginHandler }) {
     });
 
     if (response.ok) {
-      // Registration successful, handle accordingly (e.g., show a success message)
-      alert("Registration successful")
+      // Registratiotn successful, handle accordingly (e.g., show a success message)
+      showAlert("Registratiotn successful!", "success");
     } else {
       // Registration failed, handle error (e.g., show an error message)
-      alert("Registration failed")
+      showAlert("Registratiotn failed!");
     }
   };
 
 
   return (
     <div className='body_login'>
+      {alertMessage && (
+        <div className={`alert ${alertType === 'success' ? 'alert-success' : ''}`}>
+          {alertMessage}
+        </div>
+      )}
       <div className="main_login">
         <input className='login_input' type="checkbox" id="chk" aria-hidden="true" />
 
