@@ -8,7 +8,7 @@ export default function Login_form() {
     const {login} = useAuth()
     async function loginHandler(event){
         event.preventDefault()
-        console.log(6666666,"hi")
+        // console.log(6666666,"hi")
         let userName =event.target.userName.value
         let password =event.target.password.value
         // setUserInfo([userName,password])

@@ -180,7 +180,7 @@ const ProfilePage = ({ decodedToken, useResource }) => {
 
                                             <button className="delete-button" onClick={() => handleProductDelete(product.id)}>Delete</button>
 
-                                            <Link className='productde' href="/productDetails">
+                                            <Link className='productde' href="/productDetails" onClick={handleProductId(product.id)}>
                                                 Show Details
                                             </Link>
                                         </div>

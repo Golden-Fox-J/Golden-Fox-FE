@@ -3,6 +3,9 @@ import Image from 'next/image';
 import email from './images/email.png'
 import github from './images/github.png'
 import mothana from './images/mothan.jpeg'
+import mahdi from './images/mahdi.jpeg'
+import moath from './images/moath.jpg'
+
 function About() {
     return (
         <div className='whole-about'>
@@ -17,8 +20,8 @@ function About() {
                             <div className="container">
                                 <div className="container-inner">
                                     <img className="circle" src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjEwMTYtYy0wOF8xLWtzaDZtemEzLmpwZw.jpg" alt="Profile Image 1" />
-                                    <img className="img img3" src="https://avatars.githubusercontent.com/u/125549483?v=4" alt="Image 1" />
-                                </div>
+                                    <img className="img img3" src={moath.src} alt="Image 1" />
+                                </div >
                             </div>
                             <div className="divider"></div>
                             <div className="name">Mo'ath Shakhatreh</div>
@@ -38,7 +41,7 @@ function About() {
                             <div className="container">
                                 <div className="container-inner">
                                     <img className="circle" src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjEwMTYtYy0wOF8xLWtzaDZtemEzLmpwZw.jpg" alt="Profile Image 3" />
-                                    <img className="img img3" src="https://avatars.githubusercontent.com/u/125888369?v=4" alt="Image 3" />
+                                    <img className="img img3" src={mahdi.src} alt="Image 3" />
                                 </div>
                             </div>
                             <div className="divider"></div>
