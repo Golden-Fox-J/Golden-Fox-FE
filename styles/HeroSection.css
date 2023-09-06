@@ -14,7 +14,7 @@
     object-fit: cover;
   }
   .dark-overlay {
-  position: relative; /* Ensure the overlay is relative to its parent */
+  position: relative;
 }
 
 .dark-overlay::before {

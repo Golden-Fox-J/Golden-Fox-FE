@@ -5,6 +5,7 @@ import Link from 'next/link';
 import useResource from 'hooks/useResource';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { MagicSpinner } from "react-spinners-kit";
 
 
 const FavoriteListFetcher = ({ products, decodedToken }) => {
@@ -42,8 +43,20 @@ const FavoriteListFetcher = ({ products, decodedToken }) => {
   }, [favoriteData]);
 
   if (loading) {
-    return <p>Loading...</p>;
-  }
+    const styles = {
+        height: '100vh',
+        background: 'linear-gradient(to bottom, #E5C27C, #02000E)',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    };
+
+    return (
+        <div style={styles}>
+            <MagicSpinner size={130} color="#00ff89" loading={loading} />
+        </div>
+    );
+}    
 
   return (
     <div className="favourite_product">
