@@ -17,6 +17,11 @@ const categories = [
 
 function Categories() {
 
+
+
+  
+
+
   function handleCategoryId(id,category_type){
     localStorage.setItem("categoryId",id)
     localStorage.setItem("category_type",category_type)

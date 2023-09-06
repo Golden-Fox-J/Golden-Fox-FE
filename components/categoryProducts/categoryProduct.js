@@ -7,6 +7,23 @@ import useResource from "hooks/useResource";
 
 export default function CategoryProduct({decodedToken}){
 
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertType, setAlertType] = useState("");
+
+
+  const showAlert = (message, type) => {
+    setAlertMessage(message);
+    setAlertType(type);
+    setTimeout(() => {
+      setAlertMessage("");
+      setAlertType("");
+    }, 3000);
+  };
+
+
+
+  
+
     const [products , setproducts] = useState()
     useEffect(() => {
         async function getProducts() {
@@ -73,7 +90,7 @@ export default function CategoryProduct({decodedToken}){
     createResource_fav(body)
     }
     else{
-      alert("please log in first")
+      showAlert("please log in first");
     }
     
   }
@@ -82,7 +99,13 @@ export default function CategoryProduct({decodedToken}){
     return(
         
       
+      
       <div className="categoryProducts">
+      {alertMessage && (
+        <div className={`alert ${alertType === 'success' ? 'alert-success' : ''}`}>
+          {alertMessage}
+        </div>
+      )}
       <h2>{category_type}</h2>
       <hr className="categoryProductsLine"/>
       <div className="product-list">

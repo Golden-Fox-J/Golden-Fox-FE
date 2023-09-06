@@ -7,6 +7,23 @@ import axios from 'axios';
 
 function FeaturedProducts({ decodedToken }) {
 
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertType, setAlertType] = useState("");
+
+
+  const showAlert = (message, type) => {
+    setAlertMessage(message);
+    setAlertType(type);
+    setTimeout(() => {
+      setAlertMessage("");
+      setAlertType("");
+    }, 3000);
+  };
+
+  // const addProductToUserProducts = (product) => {
+  //   setUserProducts([...userProducts, product]);
+    
+  // };
 
 
   function handleProductId(id) {
@@ -17,27 +34,27 @@ function FeaturedProducts({ decodedToken }) {
   const [favoriteProducts, setFavoriteProducts] = useState([]);
   const createResource_fav = useResource("Favourite_product").createResource
   function handleAddToFav(id) {
-    if (decodedToken){
-    ///////////////////////////////////////////////////////
-    // Toggle favorite status
-    if (favoriteProducts.includes(id)) {
-      // Remove from favorites
-      setFavoriteProducts(favoriteProducts.filter((productId) => productId !== id));
-    } else {
-      // Add to favorites
-      setFavoriteProducts([...favoriteProducts, id]);
+    if (decodedToken) {
+      ///////////////////////////////////////////////////////
+      // Toggle favorite status
+      if (favoriteProducts.includes(id)) {
+        // Remove from favorites
+        setFavoriteProducts(favoriteProducts.filter((productId) => productId !== id));
+      } else {
+        // Add to favorites
+        setFavoriteProducts([...favoriteProducts, id]);
+      }
+      ///////////////////////////////////////////////////////////////
+      const body = {
+        owner: decodedToken.user_id,
+        Product: id,
+        owner_name: decodedToken.username,
+      }
+      createResource_fav(body)
     }
-    ///////////////////////////////////////////////////////////////
-    const body = {
-      owner: decodedToken.user_id,
-      Product: id,
-      owner_name: decodedToken.username,
+    else {
+      showAlert("please log in first");
     }
-    createResource_fav(body)
-  }
-  else{
-    alert("please log in first")
-  }
   }
 
 
@@ -55,12 +72,17 @@ function FeaturedProducts({ decodedToken }) {
   }, []);
 
 
-  
+
 
 
   return (
 
     <section className="featured-products">
+      {alertMessage && (
+        <div className={`alert ${alertType === 'success' ? 'alert-success' : ''}`}>
+          {alertMessage}
+        </div>
+      )}
       <h2 className='text1'>Featured Products</h2>
       <hr />
       <div className="product-list">
@@ -74,35 +96,35 @@ function FeaturedProducts({ decodedToken }) {
             </Link>
             <div className='h_p_h'>
               <div>
-              <h3>{product.Title}</h3>
-              <p>Price: {product.price} J</p>
+                <h3>{product.Title}</h3>
+                <p>Price: {product.price} J</p>
               </div>
 
-              
-              
-            
-                           
+
+
+
+
               <div
-                  key={product.id}
-                  onClick={() => handleAddToFav(product.id)}
-                  className={`buttonAddH ${favoriteProducts.includes(product.id) ? 'clicked' : ''}`}
+                key={product.id}
+                onClick={() => handleAddToFav(product.id)}
+                className={`buttonAddH ${favoriteProducts.includes(product.id) ? 'clicked' : ''}`}
+              >
+                <svg
+
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill={favoriteProducts.includes(product.id) ? 'red' : 'black'}
+                  width="25"
+                  height="25"
                 >
-                  <svg
-                    
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill={favoriteProducts.includes(product.id) ? 'red' : 'black'}
-                    width="25"
-                    height="25"
-                  >
-                    <path d="M9.653 16.915l-.005-.003-.019-.01a20.759 20.759 0 01-1.162-.682 22.045 22.045 0 01-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 018-2.828A4.5 4.5 0 0118 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 01-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 01-.69.001l-.002-.001z" />
-                  </svg>
-                </div>
-
-           
+                  <path d="M9.653 16.915l-.005-.003-.019-.01a20.759 20.759 0 01-1.162-.682 22.045 22.045 0 01-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 018-2.828A4.5 4.5 0 0118 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 01-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 01-.69.001l-.002-.001z" />
+                </svg>
+              </div>
 
 
-            
+
+
+
             </div>
 
           </div>
