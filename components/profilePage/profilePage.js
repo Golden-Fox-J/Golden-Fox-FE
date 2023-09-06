@@ -151,9 +151,18 @@ const ProfilePage = ({ decodedToken, useResource }) => {
                 <label>Contact info<input type='text' name='contact_info'/></label>
                 <label for="cars">Choose a car:</label>
                 <select name="category" id="category" >
-                    <option value="1">cars</option>
-                    <option value="2">houses</option>
-                    <option value="3">phones</option>
+                    <option value="1">Houses</option>
+                    <option value="2">Cars</option>
+                    <option value="3">Smart Phones</option>
+                    <option value="4">Books</option>
+                    <option value="5">Furniture</option>
+                    <option value="6">Garden Tools</option>
+                    <option value="7">kitchenware</option>
+                    <option value="8">Computers</option>
+                    <option value="9">Light fixtures</option>
+                    <option value="10">Motorcycles</option>
+                    <option value="11">Electronics</option>
+                    
                 </select>
                 <button type="submit">create</button>
 
